@@ -379,11 +379,10 @@ if [[ ! -x /usr/bin/ldapsearch ]]; then
 	exit
 fi
 
-if [[ $# = 0 ]]; then
-	$1="localhost"
-fi
-
 HOST="$1"
+if [ -z "$HOST" ]; then
+	HOST="localhost"
+fi
 TMPFILE=$(mktemp)
 ERRORS=0
 TOTAL=0
