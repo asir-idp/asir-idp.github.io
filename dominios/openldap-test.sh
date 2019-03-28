@@ -1,5 +1,13 @@
 #!/bin/bash
 
+HOST="$1"
+if [ -z "$HOST" ]; then
+	HOST="localhost"
+fi
+TMPFILE=$(mktemp)
+ERRORS=0
+TOTAL=0
+
 ASIR1=(
 	"ou=ASIR1,dc=iesdpm,dc=com"
 	"ou: ASIR1"
@@ -378,14 +386,6 @@ if [[ ! -x /usr/bin/ldapsearch ]]; then
 	echo "Necesita instalar el paquete 'ldap-utils'."
 	exit
 fi
-
-HOST="$1"
-if [ -z "$HOST" ]; then
-	HOST="localhost"
-fi
-TMPFILE=$(mktemp)
-ERRORS=0
-TOTAL=0
 
 trap "rm -f $TMPFILE" EXIT
 
