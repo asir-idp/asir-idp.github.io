@@ -378,12 +378,11 @@ if [[ ! -x /usr/bin/ldapsearch ]]; then
 	exit
 fi
 
-#if [[ $# = 0 ]]; then
-#	echo "uso: $(basename $0) <host>"
-#	exit
-#fi
+if [[ $# = 0 ]]; then
+	$1="localhost"
+fi
 
-HOST="localhost"
+HOST="$1"
 TMPFILE=$(mktemp)
 ERRORS=0
 TOTAL=0
