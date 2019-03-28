@@ -282,6 +282,7 @@ main() {
 	echo "   PRACTICA DE LDAP EN LINUX"
 	echo "   SCRIPT VALIDADOR"
 	echo "   servidor: $HOST"
+	echo "   Autor: Javier Valencia Rodríguez"
 	echo "################################"
 	
 	check "${ASIR1[@]}"
