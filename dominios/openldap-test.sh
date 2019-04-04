@@ -152,7 +152,6 @@ Phoenix_Johnson=(
 	"uidNumber: 2005"
 	"gidNumber: 2002"
 	"loginShell: /bin/bash"
-	"mail:"
 	"homeDirectory: /home/phoenix"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
