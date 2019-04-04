@@ -19,6 +19,10 @@ AlumnosASIR1=(
 	"cn=AlumnosASIR1,ou=ASIR1,dc=iesdpm,dc=com"
 	"gidNumber: 2001"
 	"cn: AlumnosASIR1"
+	"memberUid: cbronson"
+	"memberUid: cnorris"
+	"memberUid: eastwood"
+	"memberUid: mknight"
 	"objectClass: posixGroup"
 	"objectClass: top"
 )
@@ -112,6 +116,10 @@ AlumnosASIR2=(
 	"cn=AlumnosASIR2,ou=ASIR2,dc=iesdpm,dc=com"
 	"gidNumber: 2002"
 	"cn: AlumnosASIR2"
+	"memberUid: mbarracus"
+	"memberUid: phoenix"
+	"memberUid: asmith"
+	"memberUid: murdock"
 	"objectClass: posixGroup"
 	"objectClass: top"
 )
