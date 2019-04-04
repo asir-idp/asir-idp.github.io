@@ -44,11 +44,9 @@ Charles_Bronson=(
 	"loginShell: /bin/bash"
 	"mail: bronson@gmail.com"
 	"homeDirectory: /home/cbronson"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
@@ -63,11 +61,9 @@ Chuck_Norris=(
 	"loginShell: /bin/bash"
 	"mail: norris@hotmail.com"
 	"homeDirectory: /home/cnorris"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
@@ -82,11 +78,9 @@ Clint_Eastwood=(
 	"loginShell: /bin/sh"
 	"mail: clint@yahoo.es"
 	"homeDirectory: /home/eastwood"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
@@ -101,11 +95,9 @@ Michael_Knight=(
 	"loginShell: /bin/bash"
 	"mail: maikel@hotmail.es"
 	"homeDirectory: /home/playita"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
@@ -145,11 +137,9 @@ MA_Barracus=(
 	"loginShell: /bin/sh"
 	"mail: ma@barracus.com"
 	"homeDirectory: /home/barracus"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
@@ -164,11 +154,9 @@ Phoenix_Johnson=(
 	"loginShell: /bin/bash"
 	"mail:"
 	"homeDirectory: /home/phoenix"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
@@ -183,11 +171,9 @@ Anibal_Smith=(
 	"loginShell: /bin/bash"
 	"mail: asmith@todoloquepuedas.com"
 	"homeDirectory: /home/asmith"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
@@ -202,11 +188,9 @@ Murdock_Sanchez=(
 	"loginShell: /bin/ksh"
 	"mail: murdock69@hotmail.com"
 	"homeDirectory: /home/murdock"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
@@ -239,11 +223,9 @@ Francisco_Vargas=(
 	"loginShell: /bin/bash"
 	"mail: fran@iesdpm.org"
 	"homeDirectory: /home/fvargas"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
@@ -258,11 +240,9 @@ Angel_Perez=(
 	"loginShell: /bin/bash"
 	"mail: angel@iesdpm.org"
 	"homeDirectory: /home/aperez"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
@@ -277,11 +257,9 @@ Paco_Gonzalez=(
 	"loginShell: /bin/bash"
 	"mail: paco@iesdpm.org"
 	"homeDirectory: /home/pgonzalez"
-	"objectClass: organizationalPerson"
 	"objectClass: posixAccount"
 	"objectClass: shadowAccount"
 	"objectClass: inetOrgPerson"
-	"objectClass: person"
 	"objectClass: top"
 )
 
