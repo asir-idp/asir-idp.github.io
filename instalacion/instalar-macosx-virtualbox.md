@@ -82,7 +82,10 @@ VBoxManage setextradata $NAME "VBoxInternal2/EfiGopMode" 4
 
 El siguiente comando permite establecer una resolución de pantalla distinta a la que viene por defecto (1024x768); por ejemplo, para establecer 1920x1080:
 
-`VBoxManage setextradata "Mac OS X 10.12" "VBoxInternal2/EfiGraphicsResolution" 1920x1080`
+```
+VBoxManage setextradata "Mac OS X 10.12" "CustomVideoMode1" 1920x1080x32
+VBoxManage setextradata "Mac OS X 10.12" "VBoxInternal2/EfiGraphicsResolution" 1920x1080
+```
 
 ## Instalación de Mac OS X
 
