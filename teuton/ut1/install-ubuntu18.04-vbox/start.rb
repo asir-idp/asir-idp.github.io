@@ -3,10 +3,15 @@ group "Install Ubuntu 18.04.1 LTS on a VBox virtual machine" do
 
   debug = false
 
+  # target "Set 4GB of RAM memory for the virtual machine"
+  # goto :host1, :exec => 'cat /proc/meminfo | grep MemTotal | tr -s " " | cut -d" " -f2'
+  # puts result.debug if debug
+  # expect result.near? 4039732
+
   target "Set 4GB of RAM memory for the virtual machine"
-  goto :host1, :exec => 'cat /proc/meminfo | grep MemTotal | tr -s " " | cut -d" " -f2'
+  goto :host1, :exec => 'free --giga -h | grep "Memoria:" | tr -s " " | awk \'{print $2}\''
   puts result.debug if debug
-  expect result.near? 4039732
+  expect "4,0G"
 
   target "Set a 20GB hard disk drive for the virtual machine"
   goto :host1, :exec => "cat /sys/block/sda/size"
