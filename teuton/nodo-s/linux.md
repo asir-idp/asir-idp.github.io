@@ -6,7 +6,7 @@ Para que el profesor en el aula pueda verificar la configuración de tu máquina
 
 Abrir un terminal (Ctrl + Alt + T).
 
-![Terminal GNU/Linux](images/terminal-linux.png)
+![Terminal GNU/Linux](images/linux-bash.png)
 
 Copia el siguiente comando, pégalo en el terminal y pulsa ENTER.
 
@@ -14,13 +14,9 @@ Copia el siguiente comando, pégalo en el terminal y pulsa ENTER.
 wget -qO- https://raw.githubusercontent.com/teuton-software/teuton/master/bin/linux_s-node_install.sh | sudo bash
 ```
 
-Quedando del siguiente modo:
-
-![Install s-node command](images/install-node-s-command.png)
-
 Una vez ejecutado el comando, si todo va bien, el resultado debería ser similar al siguiente:
 
-![1569241731248](images/s-node-installation-result.png)
+![Resultado de instalación en GNU/Linux](images/linux-installation-result.png)
 
 Finalizado este apartado, esta máquina virtual ya sería un Nodo-S de Teuton.
 
