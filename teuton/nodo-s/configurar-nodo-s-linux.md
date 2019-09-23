@@ -39,12 +39,12 @@ Debemos establecer la siguiente configuración de red en la máquina virtual:
 
 | Parámetro de red | Valor        |
 | ---------------- | ------------ |
-| Dirección IP (ip address) | [**10.1.x.y**][1] |
+| Dirección IP (ip address) | [**10.1.x.y**][^1] |
 | Máscara de red (netmask) | 255.255.0.0  |
 | Puerta de enlace (gateway) | 10.1.0.1     |
 | DNS              | 8.8.8.8 |
 
-[1]: Siendo **x** el número asignado por el profesor e **y** un número del 1 y 254.
+[^1]: Siendo **x** el número asignado por el profesor e **y** un número del 1 y 254.
 
 Cómo establecer la configuración de red en ...
 
