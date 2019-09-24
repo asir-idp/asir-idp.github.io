@@ -49,5 +49,5 @@ play do
   show
   export :format => :json
   export
-  send :copy_to => :host1, :remote_dir => "./Desktop"
+  send :copy_to => :host1, :remote_dir => "."
 end
