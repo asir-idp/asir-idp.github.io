@@ -32,7 +32,7 @@ Cada vez que queramos montar una unidad en GNU/Linux debemos crear un directorio
 sudo mkdir /mnt/datos
 ```
 
-*Note that I’m using sudo because I’m creating the folder in a system-wide location owned by root.*
+>  Se utiliza sudo porque se está creando un directorio dentro de un directorio del sistema.
 
 ## Montar la carpeta compartida
 
