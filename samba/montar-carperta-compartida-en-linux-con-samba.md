@@ -1,8 +1,8 @@
-# Montar una carpeta compartida desde Windows en GNU/Linux con SAMBA
+# Montar una carpeta compartida en GNU/Linux con SAMBA
 
 Si quieres mapear una carpeta compartida desde Windows en un equipo GNU/Linux con [SAMBA](https://www.samba.org/), hay una forma sencilla de hacerlo desde la línea de comandos.
 
-## Instalación de pre-requisitos
+## Instalar los paquetes necesarios
 
 Desde un Ubuntu u otra distribución basada en Debian, podemos instalar el software necesario ejecutando los siguientes comandos:
 
