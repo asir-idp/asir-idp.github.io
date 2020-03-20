@@ -200,3 +200,9 @@ Comprobar si el equipo tiene abierto el puerto 22 (SSH):
 ```bash
 (Get-NetTCPConnection -State listen -LocalPort 22).Count -gt 0
 ```
+
+## Referencias
+
+- [Basic networking PowerShell  cmdlets cheatsheet to replace netsh, ipconfig, nslookup and more](https://www.thomasmaurer.ch/2016/02/basic-networking-powershell-cmdlets-cheatsheet-to-replace-netsh-ipconfig-nslookup-and-more/)
+
+- [Set an IP address and configure DHCP with PowerShell](https://4sysops.com/archives/set-an-ip-address-and-configure-dhcp-with-powershell/)
