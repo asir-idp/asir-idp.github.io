@@ -8,7 +8,7 @@ Para registrar un evento por cada comando ejecutado en PowerShell, que luego pod
 2. Ir a **Configuración del equipo > Plantillas administrativas > Componentes de Windows > Windows PowerShell**
 3. "Habilitar" la directiva **Activar el registro de bloque de script de PowerShell** para que se registre eventos por cada cmdlet ejecutado.
 
-![gpedit.msc](images\auditar-ejecucion-comandos-windows1.png)
+![gpedit.msc](auditar-ejecucion-comandos-windows1.png)
 
 Opcional, para transcribir en ficheros todos los comandos ejecutados y los resultados ofrecidos:
 
@@ -16,7 +16,7 @@ Opcional, para transcribir en ficheros todos los comandos ejecutados y los resul
 
 Cambios en el registro de Windows tras habilitar la directiva anterior:
 
-![Clave ScriptBlockLogging](images\auditar-ejecucion-comandos-windows2.png)
+![Clave ScriptBlockLogging](auditar-ejecucion-comandos-windows2.png)
 
 ## Creación de procesos
 
@@ -26,13 +26,13 @@ Para registrar un evento cada vez que se inicia un proceso debemos activar la di
 2. Ir a **Configuración del equipo > Configuración de Windows > Configuración de seguridad > Configuración de directiva de auditoría avanzada > Directivas de auditoría del sistema – Objeto de directiva de grupo local > Seguimiento detallado**
 3. Habilitar "Aciertos" y "Errores" en la directiva **Auditar creación de procesos** para que se registre eventos por cada cmdlet ejecutado.
 
-![](images\auditar-ejecucion-comandos-windows3.png)
+![](auditar-ejecucion-comandos-windows3.png)
 
 Configuración de esta directiva en el Registro de Windows:
 
 Los eventos de creación de procesos tienen el ID 4688 y se guardan en el registro "Seguridad".
 
-![](images\auditar-ejecucion-comandos-windows4.png)
+![](auditar-ejecucion-comandos-windows4.png)
 
 Para registrar también la línea de comandos que se usó para iniciar el proceso, es necesario habilitar la siguiente directiva (desde Windows Server 2012 R2, Windows 8.1 o superior):
 
@@ -40,7 +40,7 @@ Para registrar también la línea de comandos que se usó para iniciar el proces
 2. Ir a **Configuración del equipo > Plantillas administrativas > Sistema > Auditar creación de procesos**
 3. "Habilitar" la directiva **Incluir línea de comandos en eventos de creación de procesos** para que se incluya la línea de comando en los eventos de tipo 4688.
 
-![](images\auditar-ejecucion-comandos-windows5.png)
+![](auditar-ejecucion-comandos-windows5.png)
 
 Configuración de esta directiva desde el Registro de Windows:
 

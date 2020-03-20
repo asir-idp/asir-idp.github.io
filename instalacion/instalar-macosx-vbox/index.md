@@ -92,6 +92,3 @@ VBoxManage setextradata "Mac OS X 10.12" "VBoxInternal2/EfiGraphicsResolution" 1
 Una vez configurada la máquina, colocamos la ISO en la unida de CD de la máquina virtual, la iniciamos y comenzamos el proceso de instalación de Mac OS X.
 
 > Es necesario preparar el disco de destino de la instalación con la **Utilidad de discos** antes de comrnzar la instalación.
-
-
-

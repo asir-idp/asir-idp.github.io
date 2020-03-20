@@ -1,7 +1,0 @@
----
-:global:
-:cases:
-- :tt_members: Profesor
-  :host1_ip: localhost
-  :host1_username: alumno
-  :host1_password: onmula
