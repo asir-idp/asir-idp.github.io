@@ -55,8 +55,10 @@ La solución más rápida y sencilla se llama **ngrok**, que es un servicio que 
 4. Finalmente, redirigimos el tráfico de **ngrok** al puerto que queramos con el siguiente comando:
 
    ```bash
-   ngrok [http|tcp|tls] puerto
+   ngrok [http|tcp|tls] puerto -region eu
    ```
+
+   > La opción `-region eu` es para que se utilice un servidor `ngrok` ubicado en Europa.
 
 ### Ejemplo 1: exponer un servidor SSH
 
