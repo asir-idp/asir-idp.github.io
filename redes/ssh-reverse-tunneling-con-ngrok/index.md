@@ -12,7 +12,7 @@ El problema que nos encontramos es que nuestra salida a Internet suele ser a tra
 
 Si tienes la suerte de tener el control sobre el router, una posible solución sería abrir puertos en el mismo, que consiste en configurar unas reglas en la tabla NAT del router para que redirija el tráfico que llega a un determinado puerto (o rango de puertos) de su interfaz externa a un servidor local (en la red interna).
 
-![](C:\Users\fvarrui\GitHub\asir-idp.github.io\redes\ssh-tunneling\image02.png)
+![](image02.png)
 
 El inconveniente de esta solución es que cada vez que necesitemos añadir un puerto para un servicio nuevo o cambie la IP de nuestro servidor tenemos que añadir o modificar las reglas.
 
