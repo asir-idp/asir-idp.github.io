@@ -46,11 +46,13 @@ La solución más rápida y sencilla se llama **ngrok**, que es un servicio que 
 
 3. Localizamos el token de autenticación en el panel de **ngrok** y lo utilizamos en el siguiente comando:
 
-	![](screenshot03.png)
+  ![](screenshot03.png)
 
-	```bash
-	ngrok authtoken <token de autenticación>
-	```
+  ```bash
+  ngrok authtoken <token de autenticación>
+  ```
+
+  > Este paso sólo habría que hacerlo una vez en el servidor local.
 
 4. Finalmente, redirigimos el tráfico de **ngrok** al puerto que queramos con el siguiente comando:
 
