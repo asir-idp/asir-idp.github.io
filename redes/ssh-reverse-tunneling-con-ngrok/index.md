@@ -38,19 +38,19 @@ La solución más rápida y sencilla se llama **ngrok**, que es un servicio que 
 
 1. Debemos [registrarnos en ngrok](https://dashboard.ngrok.com/signup).
 
-<img src="screenshot01.png" style="zoom:75%;" />
+	<img src="screenshot01.png" style="zoom:75%;" />
 
 2. Descargamos y extraemos (pues se trata de un fichero ZIP) en el servidor local la versión adecuada a nuestro sistema del comando **ngrok**:
 
-<img src="screenshot02.png" style="zoom:75%;" />
+	<img src="screenshot02.png" style="zoom:75%;" />
 
 3. Localizamos el token de autenticación en el panel de **ngrok** y lo utilizamos en el siguiente comando:
 
-![](screenshot03.png)
+	![](screenshot03.png)
 
-```bash
-$ ngrok authtoken <token de autenticación>
-```
+	```bash
+	$ ngrok authtoken <token de autenticación>
+	```
 
 4. Finalmente, redirigimos el tráfico de **ngrok** al puerto que queramos. 
 
