@@ -100,8 +100,3 @@ Si tuviéramos un servidor web en nuestro servidor local podríamos acceder a é
 ## Referencias
 
 * [SSH Tunneling — The black magic for data science](https://hackernoon.com/the-ssh-black-magic-for-data-science-acd6f65e8528).
-
-
-
-
-
