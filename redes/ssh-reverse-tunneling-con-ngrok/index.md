@@ -36,7 +36,7 @@ La solución más rápida y sencilla se llama **ngrok**, que es un servicio que 
 
 ![](image04.png)
 
-1. Debemos [registrarnos en ngrok](https://dashboard.ngrok.com/signup).
+1. Debemos [registrarnos en **ngrok**](https://dashboard.ngrok.com/signup).
 
 	<img src="screenshot01.png" style="zoom:75%;" />
 
