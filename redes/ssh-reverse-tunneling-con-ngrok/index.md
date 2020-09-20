@@ -49,17 +49,21 @@ La solución más rápida y sencilla se llama **ngrok**, que es un servicio que 
 	![](screenshot03.png)
 
 	```bash
-	$ ngrok authtoken <token de autenticación>
+	ngrok authtoken <token de autenticación>
 	```
 
-4. Finalmente, redirigimos el tráfico de **ngrok** al puerto que queramos. 
+4. Finalmente, redirigimos el tráfico de **ngrok** al puerto que queramos con el siguiente comando:
+
+   ```bash
+   ngrok [http|tcp|tls] puerto
+   ```
 
 ### Ejemplo 1: exponer un servidor SSH
 
 El siguiente comando redirige todo el tráfico TCP al puerto 22 (SSH) del servidor local:
 
 ```bash
-$ ngrok tcp 22 -region eu
+ngrok tcp 22 -region eu
 ```
 
 Tras ejecutar el comando se abriría un túnel inverso SSH que nos permite acceder al puerto `22` del servidor local (`localhost`) a través a la dirección `0.tcp.eu.ngrok.io` en el puerto `19494` (en este caso, pues esto último cambia cada vez).
@@ -80,7 +84,7 @@ fran@servidor-local:~$ _
 El siguiente comando redirige todo el tráfico HTTP al puerto 80 del servidor local.
 
 ```bash
-$ ngrok http 80
+ngrok http 80
 ```
 
 Tras ejecutar el comando se abriría un túnel inverso SSH que nos permite acceder al puerto `80` del servidor local (`localhost`) a través a la dirección `e33610d46088.eu.ngrok.io`  tanto en el puerto `80` (HTTP) como en el `443` (HTTPS) (al igual que en el ejemplo anterior, estos últimos cambian de una vez a otra).
