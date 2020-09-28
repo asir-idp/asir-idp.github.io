@@ -51,7 +51,7 @@ function Install-ngrok() {
 
 function Install-OpenSSH() {
     If (Test-Path "$env:ProgramFiles\Win32-OpenSSH") {
-        Write-Host "wget for Windows already installed"
+        Write-Host "Win32-OpenSSH for Windows already installed"
     } else {
 
         $file = "$env:windir\temp\OpenSSH-Win64.zip"
@@ -61,7 +61,7 @@ function Install-OpenSSH() {
         Wget-File $url $file 
 
         Write-Host "Unzipping OpenSSH..."
-        Unzip-File $file "$env:ProgramFiles"
+        Unzip-File $file "$env:ProgramFiles\OpenSSH-Win64"
 
     }
 }
