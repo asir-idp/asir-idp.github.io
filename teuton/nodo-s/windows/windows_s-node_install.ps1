@@ -43,7 +43,7 @@ function Install-ngrok() {
     } else {
         Write-Host "Downloading and installing ngrok for Windows ..."
         (New-Object System.Net.WebClient).DownloadFile("https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip", "$env:windir\temp\ngrok-stable-windows-amd64.zip")
-        New-Item -ItemType Directory "$env:ProgramFiles\ngrok"
+        New-Item -ItemType Directory "$env:ProgramFiles\ngrok" | Out-Null
         Unzip-File "$env:windir\temp\ngrok-stable-windows-amd64.zip" "$env:ProgramFiles\ngrok"
         [Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + "$env:ProgramFiles\ngrok", "Machine")
     }
@@ -61,7 +61,7 @@ function Install-OpenSSH() {
         Wget-File $url $file 
 
         Write-Host "Unzipping OpenSSH..."
-        Unzip-File $file "$env:ProgramFiles\OpenSSH-Win64"
+        Unzip-File $file "$env:ProgramFiles"
 
     }
 }

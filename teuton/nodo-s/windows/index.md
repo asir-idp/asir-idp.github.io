@@ -1,58 +1,65 @@
 # Configurar una MV con Windows como Nodo-S
 
-Para que el profesor en el aula pueda verificar la configuración de tu máquina virtual mediante la herramienta **teuton** debes:
+Para que el profesor pueda verificar la configuración de tu máquina virtual (MV) con Windows mediante **teuton** debes hacer lo siguiente:
 
 ## 1. Configurar la MV como Nodo-S
 
-Abrimos **PowerShell** como `Administrador`.
+Abre **PowerShell** como `Administrador`.
 
 ![PowerShell](windows-powershell.png)
 
-Copia el siguiente comando, pégalo en el terminal anterior y pulsa ENTER.
+Copia el siguiente comando, pégalo en el terminal y pulsa ENTER.
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/teuton-software/teuton/master/install/windows/windows_s-node_install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/asir-idp/asir-idp.github.io/master/teuton/nodo-s/windows/windows_s-node_install.ps1'))
 ```
 
 Una vez ejecutado el comando, si todo va bien, el resultado debería ser similar al siguiente:
 
 ![Resultado de instalación en Windows](windows-installation-result.png)
 
-Finalizado este apartado, esta máquina virtual ya sería un Nodo-S de Teuton.
+Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
 
-### 2. Configurar la interfaz de red en Adaptador puente
+## 2. Hacer la máquina accesible al profesor
 
-Configuramos la interfaz de red de la máquina virtual en este modo para que ésta esté accesible desde la red del aula. Sigue las instrucciones de este [enlace](../../instalacion/configurar-adaptador-puente-vbox) para configurarlo.
+Desde un terminal, autoriza esta máquina para usar `ngrok`:
 
-### 3. Hacer la máquina accesible al profesor
+```bash
+ngrok authtoken <auth_token>
+```
 
-En este punto se dan dos situaciones: si la máquina del alumno se encuentra a) **dentro del centro** o b) **en el exterior** (en su casa, por ejemplo).
+![](ngrok-authtoken.png)
 
-#### a) Me encuentro dentro del centro
+> Debes [darte de alta](https://dashboard.ngrok.com/signup) en la web de `ngrok` y obtener así tu `<auth_token>`.
 
-En este caso debemos establecer la siguiente configuración de red en la máquina virtual:
-
-| Parámetro de red | Valor        |
-| ---------------- | ------------ |
-| Dirección IP (*ip address*) | 10.1.**x**.**y** |
-| Máscara de red (*netmask*) | 255.255.0.0  |
-| Puerta de enlace (*gateway*) | 10.1.0.1     |
-| DNS              | 8.8.8.8 |
-
-> Siendo:
->
-> -  **x** el número asignado por el profesor a cada alumno
-> -  **y** un número del 1 al 254
-
-Cómo establecer la configuración de red en ...
-
-* [Windows 10](https://pureinfotech.com/set-static-ip-address-windows-10/#static_ip_controlpanel_windows10)
-
-#### b) Me encuentro fuera del centro (en mi casa, ...)
-
-1. Configurar **ngrok** como se explica en el siguiente en [enlace]().
-2. Ejecutar el siguiente comando desde PowerShell o CMD:
+Luego ejecuta el siguiente comando:
 
 ```bash
 ngrok tcp 22 -region eu
 ```
+
+![](ngrok.png)
+
+Y finalmente, proporciona al profesor el siguiente fragmento de texto en formato YAML con tus datos y remplazando los señalados en la imagen (`<address>` y `<port>`):
+
+```yaml
+- :tt_members: <tu nombre completo>
+  :tt_moodle_id: <tu email de EVAGD>
+  :host1_ip: <address>
+  :host1_port: <port>
+  :tt_skip: false
+```
+
+Por ejemplo:
+
+```yaml
+- :tt_members: Francisco Vargas Ruiz
+  :tt_moodle_id: mi@email.es
+  :host1_ip: 2.tcp.eu.ngrok.io
+  :host1_port: 10746
+  :tt_skip: false
+```
+
+> :warning: El profesor te indicará el medio a través de la cuál deberás entregar este fichero).
+
+Pulsa la combinación de teclas **CTRL + C** para cerrar la conexión de `ngrok`, una vez tu MV haya sido corregida por el profesor.
