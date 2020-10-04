@@ -55,7 +55,7 @@ Finalmente, proporciona al profesor un fichero en formato YAML con el siguiente 
 Por ejemplo:
 
 ```yaml
-![authtoken](../windows/authtoken.png)- :tt_members: Francisco Vargas Ruiz
+- :tt_members: Francisco Vargas Ruiz
   :tt_moodle_id: mi@email.es
   :host1_ip: 10.0.2.15
   :host1_port: 22
