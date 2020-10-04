@@ -22,7 +22,49 @@ Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
 
 ## 2. Hacer la máquina accesible al profesor
 
-Desde un terminal, autoriza esta máquina para usar `ngrok`:
+En este punto se dan dos posibles situaciones: si tu MV se encuentra a) **dentro del aula** o b) **en el exterior** (en tu casa, por ejemplo).
+
+### a) Dentro del aula
+
+Primero [configuramos la interfaz de red de la MV en **Adaptador puente**](../../virtualizacion/virtualbox/configurar-red-en-adaptador-puente) para que sea accesible desde la red del aula.
+
+Luego averigua la dirección IP de tu MV de alguno de los siguientes modos:
+
+1. Abre un terminal y ejecuta el comando `ipconfig`.
+
+2. En la esquina inferior derecha de VBox se encuentra un icono que muestra la actividad de red de la MV, si mantenemos el puntero del ratón sobre dicho icono, nos mostrará la dirección IP:
+
+![](vbox-ip.png)
+
+Finalmente, proporciona al profesor un fichero en formato YAML con el siguiente contenido, indicando tus datos y remplazando `<address>` por tu dirección IP:
+
+```yaml
+- :tt_members: <tu nombre completo>
+  :tt_moodle_id: <tu email de EVAGD>
+  :host1_ip: <address>
+  :host1_port: 22
+  :tt_skip: false
+```
+
+Por ejemplo:
+
+```yaml
+- :tt_members: Francisco Vargas Ruiz
+  :tt_moodle_id: mi@email.es
+  :host1_ip: 192.168.0.5
+  :host1_port: 22
+  :tt_skip: false
+```
+
+> El profesor te indicará el medio a través del cuál deberás entregar este fichero.
+
+### b) En el exterior
+
+Primero, debes [darte de alta](https://dashboard.ngrok.com/signup) en la web de `ngrok` y obtener así tu `<auth_token>`.
+
+![](authtoken.png)
+
+Luego, desde un terminal, autoriza esta máquina para usar `ngrok`:
 
 ```bash
 ngrok authtoken <auth_token>
@@ -30,9 +72,7 @@ ngrok authtoken <auth_token>
 
 ![](ngrok-authtoken.png)
 
-> Debes [darte de alta](https://dashboard.ngrok.com/signup) en la web de `ngrok` y obtener así tu `<auth_token>`.
-
-Luego ejecuta el siguiente comando:
+A continuación, también desde un terminal, ejecuta el siguiente comando:
 
 ```bash
 ngrok tcp 22 -region eu
@@ -40,7 +80,7 @@ ngrok tcp 22 -region eu
 
 ![](ngrok.png)
 
-Y finalmente, proporciona al profesor el siguiente fragmento de texto en formato YAML con tus datos y remplazando los señalados en la imagen (`<address>` y `<port>`):
+Y finalmente, proporciona al profesor un fichero en formato YAML con el siguiente contenido, indicando tus datos y remplazando los señalados en la imagen (`<address>` y `<port>`):
 
 ```yaml
 - :tt_members: <tu nombre completo>
@@ -60,6 +100,6 @@ Por ejemplo:
   :tt_skip: false
 ```
 
-> :warning: El profesor te indicará el medio a través de la cuál deberás entregar este fichero).
+> El profesor te indicará el medio a través dela cuál deberás entregar este fichero.
 
 Pulsa la combinación de teclas **CTRL + C** para cerrar la conexión de `ngrok`, una vez tu MV haya sido corregida por el profesor.
