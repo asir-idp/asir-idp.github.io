@@ -36,11 +36,11 @@ Primero [configuramos la interfaz de red de la MV en **Adaptador puente**](../..
 
 Luego averigua la dirección IP de tu MV de alguno de los siguientes modos:
 
-1. Abre un terminal y ejecuta el comando `ip a` o `ifconfig`.
+- Abre un terminal y ejecuta el comando `ip a` o `ifconfig`.
 
-2. En la esquina inferior derecha de VBox se encuentra un icono que muestra la actividad de red de la MV, si mantenemos el puntero del ratón sobre dicho icono, nos mostrará la dirección IP:
+- En la esquina inferior derecha de VBox se encuentra un icono que muestra la actividad de red de la MV, si mantenemos el puntero del ratón sobre dicho icono, nos mostrará la dirección IP:
 
-   ![](vbox-ip.png)
+![](vbox-ip.png)
 
 Finalmente, proporciona al profesor un fichero en formato YAML con el siguiente contenido, indicando tus datos y remplazando `<address>` por tu dirección IP:
 
