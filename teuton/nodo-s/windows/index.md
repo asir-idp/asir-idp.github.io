@@ -36,13 +36,15 @@ Luego averigua la dirección IP de tu MV de alguno de los siguientes modos:
 
 ![](vbox-ip.png)
 
-Finalmente, proporciona al profesor un fichero en formato YAML con el siguiente contenido, indicando tus datos y remplazando `<address>` por tu dirección IP:
+Y finalmente, proporciona al profesor un fichero en formato YAML con el siguiente contenido, remplazando los valores indicados (`<address>` con la dirección IP de tu MV, y `<usuario>` y `<contraseña>` con las credenciales del usuario de la MV):
 
 ```yaml
 - :tt_members: <tu nombre completo>
   :tt_moodle_id: <tu email de EVAGD>
   :host1_ip: <address>
   :host1_port: 22
+  :host1_username: <usuario>
+  :host1_password: <contraseña>  
   :tt_skip: false
 ```
 
@@ -53,10 +55,14 @@ Por ejemplo:
   :tt_moodle_id: mi@email.es
   :host1_ip: 192.168.0.5
   :host1_port: 22
+  :host1_username: alumno
+  :host1_password: onmula
   :tt_skip: false
 ```
 
-> El profesor te indicará el medio a través del cuál deberás entregar este fichero.
+> Siendo `alumno` el nombre del usuario de la MV y `onmula` su contraseña.
+
+**El profesor te indicará el medio a través del  cuál deberás entregar este fichero.**
 
 ### b) En el exterior
 
@@ -80,13 +86,15 @@ ngrok tcp 22 -region eu
 
 ![](ngrok.png)
 
-Y finalmente, proporciona al profesor un fichero en formato YAML con el siguiente contenido, indicando tus datos y remplazando los señalados en la imagen (`<address>` y `<port>`):
+Y finalmente, proporciona al profesor un fichero en formato YAML con el siguiente contenido, remplazando los valores indicados (`<address>` y  `<port>` con los datos que devuelve **ngrok**; y `<usuario>` y `<contraseña>` con las credenciales del usuario de la MV):
 
 ```yaml
 - :tt_members: <tu nombre completo>
   :tt_moodle_id: <tu email de EVAGD>
   :host1_ip: <address>
   :host1_port: <port>
+  :host1_username: <usuario>
+  :host1_password: <contraseña>  
   :tt_skip: false
 ```
 
@@ -97,9 +105,11 @@ Por ejemplo:
   :tt_moodle_id: mi@email.es
   :host1_ip: 2.tcp.eu.ngrok.io
   :host1_port: 10746
+  :host1_username: alumno
+  :host1_password: onmula
   :tt_skip: false
 ```
 
-> El profesor te indicará el medio a través dela cuál deberás entregar este fichero.
+> Siendo `alumno` el nombre del usuario de la MV y `onmula` su contraseña.
 
-Pulsa la combinación de teclas **CTRL + C** para cerrar la conexión de `ngrok`, una vez tu MV haya sido corregida por el profesor.
+**El profesor te indicará el medio a través del cuál deberás entregar este fichero.**
