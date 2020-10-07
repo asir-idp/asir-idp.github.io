@@ -41,14 +41,6 @@ Las primeras actividades realizadas han sido la creación de dos máquinas virtu
 
 En el siguiente [enlace](https://asir-idp.github.io/virtualizacion/virtualbox/crear-maquina-virtual/) hay una guía sobre cómo crear una máquina virtual.
 
-#### Corrección de las máquinas virtuales
-
-Para que el profesor pueda corregir las actividades de creación de las máquinas virtuales es necesario seguir una de las siguientes guías, dependiendo del sistema operativo que hayamos instalado en la máquina virtual:
-
-- [Configurar una MV con Windows como Nodo-S](https://asir-idp.github.io/teuton/nodo-s/windows/).
-
-- [Configurar una MV con GNU/Linux como Nodo-S](https://asir-idp.github.io/teuton/nodo-s/linux/).
-
 ### Actividades realizadas hasta la fecha
 
 | Contenidos                               | Presentación                                                 | Cuestionario                                                 |
