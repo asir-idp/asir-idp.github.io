@@ -13,6 +13,10 @@
 - Vías de contacto entre profesor y alumnado: [Jitsi](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/jitsi/view.php?id=270534) y [Telegram](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/url/view.php?id=278369):
 
   ![image-20201008002534727](vias-contacto.png)
+  
+- [**Buzón**](https://drive.google.com/drive/u/3/folders/1--QR-bKgQJ_R4Y_ETPSyXbGvBgt4DkXK): carpeta compartida en Drive con recursos compartidos por el profesor.
+
+  ![image-20201021171515348](buzon.png)
 
 ## Encuesta inicial
 
