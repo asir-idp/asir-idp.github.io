@@ -48,4 +48,17 @@ En el siguiente [enlace](https://asir-idp.github.io/virtualizacion/virtualbox/cr
 | Introducción a los sistemas informáticos | [Acceso](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/url/view.php?id=194886) | [Acceso](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=193416) |
 | Los sistemas operativos                  | [Acceso](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/url/view.php?id=195342) | [Acceso](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=193098) |
 | Gestión de procesos                      | [Acceso](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/url/view.php?id=195343) | [Acceso](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=193837) |
+| Gestión de memoria                       | [Acceso](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/url/view.php?id=194885) | [Acceso](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=194817) |
 
+#### Prácticas
+
+| Contenidos relacionados | Actividad                                                    |
+| ----------------------- | ------------------------------------------------------------ |
+| Gestión de procesos     | [Planificación de procesos con FCFS](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=194038) |
+| Gestión de procesos     | [Planificación de procesos con RR](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=194040) |
+| Gestión de procesos     | [Planificación de procesos con SJF](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=194039) |
+| Gestión de procesos     | [Planificación de procesos con SRT](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=194039) |
+| Gestión de memoria      | [Traducción de direcciones en Paginación](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=194815) |
+| Gestión de memoria      | [Traducción de direcciones en Segmentación](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=194816) |
+
+> :warning: [OSSim](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/url/view.php?id=218632): Simulador utilizado para las actividades de planificación de procesos
