@@ -43,6 +43,8 @@ En el siguiente [enlace](https://asir-idp.github.io/virtualizacion/virtualbox/cr
 
 ### Actividades realizadas hasta la fecha
 
+#### Cuestionarios
+
 | Contenidos                               | Presentación                                                 | Cuestionario                                                 |
 | ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Introducción a los sistemas informáticos | [Acceso](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/url/view.php?id=194886) | [Acceso](https://www3.gobiernodecanarias.org/medusa/evagd/laguna/mod/quiz/view.php?id=193416) |
