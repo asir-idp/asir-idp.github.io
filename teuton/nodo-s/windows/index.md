@@ -26,7 +26,7 @@ En este punto se dan dos posibles situaciones: si tu MV se encuentra a) **dentro
 
 ### a) Dentro del aula
 
-Primero [configuramos la interfaz de red de la MV en **Adaptador puente**](../../virtualizacion/virtualbox/configurar-red-en-adaptador-puente) para que sea accesible desde la red del aula.
+Primero [configuramos la interfaz de red de la MV en **Adaptador puente**](../../../virtualizacion/virtualbox/configurar-red-en-adaptador-puente) para que sea accesible desde la red del aula.
 
 Luego averigua la dirección IP de tu MV de alguno de los siguientes modos:
 
