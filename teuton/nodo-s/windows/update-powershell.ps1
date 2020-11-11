@@ -47,8 +47,8 @@ function Install-WMF() {
 
         Write-Host "Downloading and installing WMF 5.1 for Windows ..."
         (New-Object System.Net.WebClient).DownloadFile("http://download.microsoft.com/download/6/F/5/6F5FF66C-6775-42B0-86C4-47D41F2DA187/Win7AndW2K8R2-KB3191566-x64.zip", "$env:windir\temp\Win7AndW2K8R2-KB3191566-x64.zip")
-        Unzip-File "$env:windir\temp\Win7AndW2K8R2-KB3191566-x64.zip", $env:windir\temp\Win7AndW2K8R2-KB3191566-x64
-        & "$env:windir\temp\Win7AndW2K8R2-KB3191566-x64\Install-WMF5.1.ps1"
+        Unzip-File "$env:windir\temp\Win7AndW2K8R2-KB3191566-x64.zip", $env:windir\temp
+        & "$env:windir\temp\Install-WMF5.1.ps1"
 
     }
 }
