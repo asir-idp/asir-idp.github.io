@@ -38,3 +38,7 @@ A continuación debemos **restaurar el cargador de arranque** (código de arranq
 6. Extrae el DVD/USB de Windows y reinicia el equipo.
 
 7. Y ahora debería arrancar sin problema. ¡¡¡De nada!!! :smile:
+
+## Referencias
+
+- [Fix the MBR – Guide for Windows XP, Vista, 7, 8, 8.1, 10](https://neosmart.net/wiki/fix-mbr/#Fix_the_MBR_in_Windows_10)
