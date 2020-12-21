@@ -1,5 +1,5 @@
 # elimina media y todo su contenido si existe
-Remove-Item -Recurse media
+Remove-Item -Recurse media -ErrorAction SilentlyContinue
 
 # crear estructura de directorios
 
