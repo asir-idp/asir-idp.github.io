@@ -68,7 +68,7 @@ Esta es una distribución de Linux sin interfaz gráfica (podemos instalarla sin
 
 ![img](configurar-sql-developer.png) 
 
-> :warning: Es recomendable marcar la pestaña de “Guardar Contraseña”
+> Es recomendable marcar la pestaña de “Guardar Contraseña”
 
 Una vez hecho esto, hemos finalizado el proceso y podremos utilizar libremente el gestor. De esta manera podremos utilizar toda le gestión desde el equipo original, mientras que tanto la carga de los archivos y las bases de datos se están almacenando y ejecutando en la máquina virtual. Al ser esta mucho más ligera, la carga total del equipo es muchísimo menor y debería ir más fluido, el consumo total de RAM para la base de datos es de 2 GB y el Developer en la real, por su parte, es un servicio ligero, pues todo el cálculo se hace en la virtual.
 
