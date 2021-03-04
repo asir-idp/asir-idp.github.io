@@ -1,4 +1,8 @@
-# Instalación Optimizada de Oracle SQL
+# Instalación optimizada de Oracle Database 11g
+
+## Video de instalación
+
+[![demo](http://img.youtube.com/vi/7h0cx0Qk_Bo/0.jpg)](https://youtu.be/7h0cx0Qk_Bo)
 
 ## Instalación de Vagrant
 
