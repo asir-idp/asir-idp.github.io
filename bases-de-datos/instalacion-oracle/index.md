@@ -72,6 +72,40 @@ Esta es una distribución de Linux sin interfaz gráfica (podemos instalarla sin
 
 Una vez hecho esto, hemos finalizado el proceso y podremos utilizar libremente el gestor. De esta manera podremos utilizar toda le gestión desde el equipo original, mientras que tanto la carga de los archivos y las bases de datos se están almacenando y ejecutando en la máquina virtual. Al ser esta mucho más ligera, la carga total del equipo es muchísimo menor y debería ir más fluido, el consumo total de RAM para la base de datos es de 2 GB y el Developer en la real, por su parte, es un servicio ligero, pues todo el cálculo se hace en la virtual.
 
+
+
+## Cambio de expiración de las contraseñas
+
+> **Nota:** Este paso no está en el tutorial
+
+Por defecto, las políticas de oracle determinan que la caducidad de las contraseñas sea cada 180 día, pero nosotros vamos a cambiar eso ejecutando 2 cláusulas de SQL. Para ello , tras haber realizado la conexión con nuestra máquina virtual desde el Developer, abriremos una hoja de consultas. En ella escribiremos lo siguiente:
+
+
+
+- Para ver la caducidad de las contrasñas:
+
+```SQL
+Select * from DBA_PROFILES where RESOURCE_NAME like'PASSWORD_LIFE_TIME';
+```
+
+![contraseñas-1](contraseñas-1.PNG)
+
+- Para cambiar la caducidad a ilimitada.
+
+```SQL
+ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+```
+
+![contraseñas-2](contraseñas-2.PNG)
+
+- Verificar que se ha aplicado el cambio
+
+```SQL
+Select * from DBA_PROFILES where RESOURCE_NAME like'PASSWORD_LIFE_TIME';
+```
+
+![contraseñas-3](contraseñas-3.PNG)
+
 ## Créditos
 
 - [Omar Domínguez Fuentes](https://github.com/Omardf00) 

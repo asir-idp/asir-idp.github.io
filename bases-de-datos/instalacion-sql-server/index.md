@@ -80,3 +80,9 @@ choco install -y sql-server-management-studio
 ![credenciales](credenciales.PNG)
 
 De esta manera podremos utilizar toda le gestión desde el equipo original, mientras que tanto la carga de los archivos y las bases de datos se están almacenando y ejecutando en la máquina virtual. Al ser esta mucho más ligera, la carga total del equipo es muchísimo menor y debería ir más fluido, el consumo total de RAM para la base de datos es de 2 GB y el Management Studio en la real, por su parte, es un servicio ligero, pues todo el cálculo se hace en la virtual.
+
+
+
+## Créditos 
+
+- [Omar Domínguez Fuentes](https://github.com/Omardf00)
