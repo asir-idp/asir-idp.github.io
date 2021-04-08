@@ -120,5 +120,6 @@ El **Directorio Activo** de Windows y **OpenLDAP** son ejemplos de servidores de
 - [Protocolo Ligero de Acceso a Directorios (Wikipedia)](https://es.wikipedia.org/wiki/Protocolo_Ligero_de_Acceso_a_Directorios).
 - [Directory Information Tree (Wikipedia)](https://en.wikipedia.org/wiki/Directory_information_tree).
 - [LDAP Data Interchange Format (LDIF)](https://en.wikipedia.org/wiki/LDAP_Data_Interchange_Format).
-- [LDAP](https://www.ldap.com/).[OpenLDAP](https://www.openldap.org/).
-- [Glossary of LDAP and Directory Terminology](http://ldapwiki.com/wiki/Glossary Of LDAP And Directory Terminology).
+- [LDAP](https://www.ldap.com/) 
+- [OpenLDAP](https://www.openldap.org/).
+- [Glossary of LDAP and Directory Terminology](http://ldapwiki.com/wiki/Glossary%20Of%20LDAP%20And%20Directory%20Terminology).
