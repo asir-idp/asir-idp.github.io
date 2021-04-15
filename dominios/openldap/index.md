@@ -428,7 +428,7 @@ Enter LDAP Password: ******
 dn:cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 ```
 
-### **Modificar una entrada del directorio** 
+### Modificar una entrada del directorio
 
 La sintaxis del comando para modificar una entrada del directorio es la siguiente:
 
@@ -438,7 +438,7 @@ $ ldapmodify [OPCIONES] -f fichero.ldif
 
 Al igual que para añadir, debemos crear un fichero con formato LDIF para realizar modificaciones a las entradas del directorio.
 
-#### Modificar el valor de un atributo de una entrada
+**Modificar el valor de un atributo de una entrada**
 
 Si queremos modificar un atributo de una entrada, por ejemplo el atributo "sn" del usuario "Fran Vargas", usaríamos el siguiente fichero:
 
@@ -458,7 +458,7 @@ Donde:
 | replace    | Indica el atributo que se va a modificar. En el ejemplo anterior es “sn” (surname = apellido). |
 | sn         | Nuevo valor del atributo.                                    |
 
-#### Añadir un nuevo atributo a una entrada
+**Añadir un nuevo atributo a una entrada**
 
 Si queremos añadir un nuevo atributo, por ejemplo "telephoneNumber" al usuario "Fran Vargas", usaríamos el siguiente fichero:
 
@@ -478,7 +478,7 @@ Donde:
 | add             | Indica el atributo que se va a añadir. En el ejemplo anterior es “telephoneNumber”. |
 | telephoneNumber | Nuevo valor del atributo.                                    |
 
-#### Eliminar un atributo de una entrada
+**Eliminar un atributo de una entrada**
 
 Si queremos eliminar un atributo, por ejemplo "telephoneNumber" del usuario "Fran Vargas", usaríamos el siguiente fichero:
 
@@ -497,7 +497,7 @@ Donde:
 | changetype | Tipo de cambio que se va a realizar sobre la entrada. “modify” indica que se va a modificar la entrada. |
 | delete     | Indica el atributo que se va a modificar. En el ejemplo anterior es “telephonmeNumber”. |
 
-#### Modificar el RDN de una entrada
+**Modificar el RDN de una entrada**
 
 Si por ejemplo quisiéramos modificar el RDN (Relative Distinguished Name) del usuario "Fran Vargas", emplearíamos un fichero LDIF como el siguiente:
 
@@ -517,7 +517,7 @@ Donde:
 | newrdn       | Atributo que se corresponde con el RDN de la entrada y su nuevo valor. En este caso “cn=…”. |
 | deleteoldrdn | Número de elementos que se eliminan del DN del usuario. En este caso 1. |
 
-#### Mover una entrada
+**Mover una entrada**
 
 Si por ejemplo quisiéramos mover la entrada del usuario "Fran Vargas" de la unidad organizativa "profesores" a "alumnos", emplearíamos un fichero LDIF como el siguiente:
 
@@ -539,7 +539,7 @@ Donde:
 | deleteoldrdn | Número de elementos que se eliminan del DN del usuario. En este caso 1. |
 | newsuperior  | DN de la nueva ubicación de la entrada (debe existir).       |
 
-#### Realizar varias modificaciones en una entrada
+**Realizar varias modificaciones en una entrada**
 
 Es posible hacer varios cambios en una entrada desde un mismo fichero LDIF; por ejemplo, para modificar el atributo "sn" y añadir el atributo "telephoneNumber" al usuario "Fran Vargas":
 
@@ -557,7 +557,7 @@ telephoneNumber: +34600123456
 
 Se usa el guión "-" como separador de los cambios. También posible repetir atributos, en este caso se añaden dos números de teléfono al usuario.
 
-### **Eliminar una entrada del directorio**
+**Eliminar una entrada del directorio**
 
 La sintaxis del comando para eliminar una entrada del directorio es la siguiente:
 
@@ -575,7 +575,7 @@ Por ejemplo, para eliminar al usuario "Fran Vargas":
 $ ldapdelete -x -D "cn=admin,dc=iesdomingoperezminik,dc=es" -W "cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es"
 ```
 
-### **Consultar el directorio**
+**Consultar el directorio**
 
 La sintaxis del comando para realizar una búsqueda/consulta en el directorio es la siguiente:
 
@@ -611,13 +611,13 @@ $ ldapsearch -x -b "dc=acme,dc=es" "(cn=F*)"
 $ ldapsearch -x -b "dc=acme,dc=es" "(uid=fvarrui)" sn
 ```
 
-## **Autenticación de usuarios GNU/Linux basada en LDAP**
+## Autenticación de usuarios GNU/Linux basada en LDAP
 
 Como ya comentamos, una de las utilidades más importantes de un servidor LDAP es como servidor de autentificación. Autentificarse es necesario para entrar en un sistema GNU/Linux. También para acceder a algunos servicios como un servidor FTP o a páginas privadas en un servidor Web. 
 
 A continuación veremos las modificaciones que hay que realizar en un sistema GNU/Linux para autentificar a los usuarios contra un servidor LDAP cuando se inicie sesión en el equipo.
 
-## **Librerías de autenticación pam-ldap y nss-ldap**
+### Librerías de autenticación pam-ldap y nss-ldap
 
 La librería **pam-ldap** permite que las aplicaciones que utilizan PAM (Pluggable Authentication Module) para autentificarse, puedan hacerlo mediante un servidor LDAP. Para que el sistema GNU/Linux se autentifique mediante un servidor LDAP es necesario instalar esta librería ya que utiliza PAM. Hay otras aplicaciones o servicios que utilizan PAM para la autentificación y por tanto podrían, gracias a la librería **pam-ldap**, autentificarse ante un servidor LDAP.
 
@@ -625,7 +625,7 @@ Para especificar el modo de autentificación de cada servicio es necesario confi
 
 La librería **nss-ldap** permite que un servidor LDAP suplante a los archivos /etc/passwd, /etc/group y /etc/shadow como bases de datos del sistema. Posteriormente deberemos configurar el archivo /etc/nsswitch.conf para que se utilice LDAP como base de datos del sistema en lugar de los archivos passwd, group y shadow.
 
-## **Instalación de los paquetes necesarios**
+### Instalación de los paquetes necesarios
 
 La instalación de los paquetes libpam-ldap y libnss-ldap se puede realizar ejecutando el siguiente comando:
 
@@ -669,7 +669,7 @@ También podemos volver a iniciar este asistente de configuración ejecutando la
 
 **OJO: Si hemos hecho cambios manualmente en el fichero /etc/ldap.conf se perderán dichos cambios tras ejecutar el asistente.**
 
-## **Configuración de las librerías**
+### Configuración de las librerías
 
 El archivo de configuración de ambas librerías es /etc/ldap.conf y la contraseña del administrador del servidor LDAP se guarda como texto plano (sin encriptar) en el fichero /etc/ldap.secret.
 
@@ -698,7 +698,7 @@ Así las búsquedas de usuarios y grupos sólo se harán en las ramas del direct
 
 Ya hemos instalado y configurado las librerías necesarias para que nuestro sistema GNU/Linux autentique los usuarios contra un servidor LDAP concreto. Ahora falta configurar el módulo PAM para que utilice estas librerías ya configuradas.
 
-## **Configurar el fichero nsswitch.conf**
+### Configurar el fichero nsswitch.conf
 
 Para que el servidor LDAP actúe como si se tratara de los archivos /etc/passwd, /etc/group y /etc/shadow, además de instalar las librerías anteriores, debemos indicar que se utilice LDAP como alternativa para autentificar usuarios. Para ello hay que añadir en el archivo /etc/nsswitch.conf, exactamente en las líneas que hacen referencia a "passwd", "group" y "shadow", la palabra ldap tras la palabra compat quedando el archivo /etc/nsswitch.conf así:
 
@@ -724,7 +724,7 @@ rpc:            db files
 netgroup:       nis
 ```
 
-## **Configurar servicios PAM**
+### Configurar servicios PAM
 
 Nuestro sistema ya estaría preparado para autentificarse por LDAP. Editando los archivos que hay en el directorio /etc/pam.d, podemos configurar la forma en la que se autentifica cada uno de los servicios que requieren autentificación.
 
@@ -824,7 +824,7 @@ account	required			pam_permit.so
 # end of pam-auth-update config
 ```
 
-### **Configuración del archivo common-session**
+### Configuración del archivo common-session
 
 Para permitir que los servicios de nuestro sistema obtengan los parámetros de la sesión de usuario mediante las librerías pam-ldap, debemos añadir en el archivo /etc/pam.d/common-session la siguiente línea debajo de la línea pam_unix.so:
 
@@ -939,7 +939,7 @@ Pero justo antes de la siguiente línea:
 session required pam_permit.so
 ```
 
-De esta forma, cuando un usuario inicie sesión y no disponga de directorio HOME, se creará a partir de los ficheros /etc/skel (skel=/etc/skel) y con los permisos rw-rw-r- (umask=0022).
+De esta forma, cuando un usuario inicie sesión y no disponga de directorio HOME, se creará a partir de los ficheros /etc/skel (skel=/etc/skel) y con los permisos `rw-rw-r-` (umask=0022).
 
 ## Creación de usuarios y grupos en el directorio LDAP para poder iniciar sesión en GNU/Linux
 
@@ -951,7 +951,7 @@ Las unidades organizativas (organizational units) nos permiten organizar las ent
 
 El objetClass para este tipo de entrada es "organizationalUnit" extiende de "top", y como RDN se utiliza el atributo "ou" con el nombre de la unidad organizativa.
 
-#### organizationalUnit
+**organizationalUnit**
 
 | Atributos                  | Descripción                       | Obligatorio |
 | -------------------------- | --------------------------------- | ----------- |
@@ -979,7 +979,7 @@ Las cuentas de los usuarios que queremos que puedan iniciar sesión en los siste
 
 Si queremos poder almacenar información adicional en el directorio de los usuarios como el e-mail u otros datos, también podemos hacer que sus entradas sean de tipo "inetOrgPerson".
 
-#### posixAccount
+**posixAccount**
 
 | Atributos      | Descripción                                                  | Obligatorio |
 | -------------- | ------------------------------------------------------------ | ----------- |
@@ -993,7 +993,7 @@ Si queremos poder almacenar información adicional en el directorio de los usuar
 | loginShell     | Shell de inicio de sesión.                                   |             |
 | userPassword   | Contraseña del usuario.                                      |             |
 
-#### shadowAccount
+**shadowAccount**
 
 | Atributos        | Descripción                                                  | Obligatorio |
 | ---------------- | ------------------------------------------------------------ | ----------- |
@@ -1008,7 +1008,7 @@ Si queremos poder almacenar información adicional en el directorio de los usuar
 | shadowWarning    | Número de días en que se avisa al usuario de que cambie su contraseña antes de que caduque. |             |
 | userPassword     | Contraseña del usuario "hasheada"                            |             |
 
-#### inetOrgPerson
+**inetOrgPerson**
 
 | Atributos     | Descripción           | Obligatorio |
 | ------------- | --------------------- | ----------- |
@@ -1020,11 +1020,11 @@ Si queremos poder almacenar información adicional en el directorio de los usuar
 
 > Las clases de objeto "posixAccount" y "shadowAccount" se corresponden campo a campo con los ficheros /etc/passwd y /etc/shadow de los sistemas GNU/Linux.
 
-### **Grupos**
+### Grupos
 
 Las grupos de usuarios definidos en el directorio LDAP que queremos que sean reconocidos por nuestro sistema GNU/Linux deben pertenecer a la clase de objeto "posixGroup" que extiende a la clase "top".
 
-#### posixGroup
+**posixGroup**
 
 | Atributos      | Descripción                                                  | Obligatorio |
 | -------------- | ------------------------------------------------------------ | ----------- |
@@ -1034,7 +1034,7 @@ Las grupos de usuarios definidos en el directorio LDAP que queremos que sean rec
 | memberUid      | Nombre del usuario (UID, User IDentifier) perteneciente al grupo.Se repetirá tantas veces como usuarios tenga el grupo. |             |
 | userPassword   | Contraseña del grupo. Los usuarios que conozcan esta contraseña pueden administrar el grupo. |             |
 
-## **Probar la autentificación**
+## Probar la autentificación
 
 Nuestro servidor LDAP ya debería autentificar correctamente a nuestros usuarios.
 
@@ -1071,11 +1071,7 @@ angel@cliente-linux:/home/fran$ whoami
 angel
 ```
 
-## **Requisitos**
-
-- Todas las pruebas se han realizado con un LinuxMint 18.2 XFCE
-
-## **Referencias**
+## Referencias
 
 - [How To Install and Configure a Basic LDAP Server on an Ubuntu 12.04 VPS](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-a-basic-ldap-server-on-an-ubuntu-12-04-vps).
 - [How To Use LDIF Files to Make Changes to an OpenLDAP System](https://www.digitalocean.com/community/tutorials/how-to-use-ldif-files-to-make-changes-to-an-openldap-system).
