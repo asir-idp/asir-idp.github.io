@@ -1,15 +1,13 @@
 # **Dominios en GNU/Linux**
 
-
-
 ## **Instalación y configuración de OpenLDAP**
 
 ### **Instalación de OpenLDAP**
 
-El servidor OpenLDAP está disponible en el paquete slapd, y lo podemos instalar utilizando apt-get:
+El servidor OpenLDAP está disponible en el paquete slapd, y lo podemos instalar utilizando apt:
 
 ```bash
-# apt-get install slapd
+# apt install slapd
 ```
 
 Durante la instalación, nos pedirá que introduzcamos la contraseña del administrador del servidor LDAP.
@@ -26,21 +24,21 @@ Para ello debemos ejecutar el siguiente comando:
 
 Y seguir los siguientes pasos en el asistente:
 
-1. El asistente nos pregunta si deseamos omitir la configuración del servidor LDAP. Debemos seleccionar que “No”, ya que lo que queremos es precisamente configurar el servidor.
+1. El asistente nos pregunta si deseamos omitir la configuración del servidor LDAP. Debemos seleccionar que "No", ya que lo que queremos es precisamente configurar el servidor.
 
 2. Indicamos el nombre de nuestro dominio (DNS) para crear base (raíz) del directorio LDAP. 
 
-   Por ejemplo, si indicamos que nuestro dominio es “iesdomingoperezminik.es”, configurará la base del directorio LDAP como “dc=iesdomingoperezmiminik,dc=es”, que será el nombre distinguido (dn) de la entrada correspondiente a nuestro dominio. Dentro del dominio irán las cuentas de los usuarios, los grupos, y otro tipo de entradas relacionadas con ese dominio.
+   Por ejemplo, si indicamos que nuestro dominio es "iesdomingoperezminik.es", configurará la base del directorio LDAP como "dc=iesdomingoperezmiminik,dc=es", que será el nombre distinguido (dn) de la entrada correspondiente a nuestro dominio. Dentro del dominio irán las cuentas de los usuarios, los grupos, y otro tipo de entradas relacionadas con ese dominio.
 
-   **NOTA: dc = Domain Component y dn = Distinguished Name**
+   >  **NOTA: dc = Domain Component y dn = Distinguished Name**
 
 3. Indicamos el nombre descriptivo de nuestra organización.
 
-Por ejemplo: “IES Domingo Pérez Minik”.
+Por ejemplo: "IES Domingo Pérez Minik".
 
-4. Establecemos la contraseña del usuario “admin” (administrador) del servidor LDAP. Nos la pedirá 2 veces para evitar errores.
-5. Especificamos el motor de base de datos que utilizará el servicio de directorio. Se recomienda “MDB”.
-6. Indicamos si queremos o no que se elimine la base de datos del servidor LDAP al purgar el paquete “slapd”. Dejamos la opción por defecto.
+4. Establecemos la contraseña del usuario "admin" (administrador) del servidor LDAP. Nos la pedirá 2 veces para evitar errores.
+5. Especificamos el motor de base de datos que utilizará el servicio de directorio. Se recomienda "MDB".
+6. Indicamos si queremos o no que se elimine la base de datos del servidor LDAP al purgar el paquete "slapd". Dejamos la opción por defecto.
 7. Si detecta que hay una base de datos antigua, debemos indicar si queremos moverla a otra ubicación. Dejamos la opción por defecto.
 8. Indicamos si queremos que el servidor LDAP soporte la versión LDAPv2, para compatibilidad con aplicaciones antiguas. Dejamos la opción por defecto.
 
@@ -102,7 +100,7 @@ Para acceder al directorio LDAP y poder crear y modificar elementos en dicho dir
 
 **OJO: para autenticarnos en un servidor LDAP, cuando nos pide el nombre de usuario, es necesario especificar el DN completo del usuario.** 
 
-**Por ejemplo, en la imagen anterior, si queremos acceder como el usuario  “<u>mapaza</u>”, usamos su DN que es “<u>uid=mapaza,ou=People,dc=nspsac,dc=com</u>” y su contraseña.**
+**Por ejemplo, en la imagen anterior, si queremos acceder como el usuario  "<u>mapaza</u>", usamos su DN que es "<u>uid=mapaza,ou=People,dc=nspsac,dc=com</u>" y su contraseña.**
 
 ## **Administrar LDAP desde la interfaz gráfica (GUI)**
 
@@ -114,7 +112,7 @@ Podemos Descargar ADS desde el siguiente enlace:
 
 http://directory.apache.org/studio/
 
-Es necesario tener Java instalado para poder usar ADS. Ejecutando los siguientes comandos instalamos Java 14.0.2:
+Es necesario tener Java instalado para poder usar ADS. Ejecutando los siguientes comandos instalamos Java 11.0.10:
 
 ```bash
 $ curl -s "https://get.sdkman.io" | bash
@@ -123,10 +121,10 @@ $ sdk install java 11.0.10.j9-adpt
 
 ### **LDAP Administration Tool (LAT)**
 
-Para instalar “lat” podemos utilizar “apt-get”:
+Para instalar "lat" podemos utilizar "apt":
 
 ```bash 
-# apt-get install lat
+# apt install lat
 ```
 
 Una vez instalada, para ejecutarlo podemos hacerlo con la siguiente orden:
@@ -135,21 +133,21 @@ Una vez instalada, para ejecutarlo podemos hacerlo con la siguiente orden:
 $ lat &
 ```
 
-Una vez iniciado, en “Hostname” indicamos el nombre o la dirección IP del servidor LDAP al que queremos conectar, en “Username” el nombre del usuario con el que queremos conectarnos (en nuestro caso, el administrador del servidor, “admin”), y la contraseña. Ahora podremos explorar y manipular los elementos existentes en nuestro directorio LDAP con esta herramienta.
+Una vez iniciado, en "Hostname" indicamos el nombre o la dirección IP del servidor LDAP al que queremos conectar, en "Username" el nombre del usuario con el que queremos conectarnos (en nuestro caso, el administrador del servidor, "admin"), y la contraseña. Ahora podremos explorar y manipular los elementos existentes en nuestro directorio LDAP con esta herramienta.
 
 ### **phpLdapAdmin**
 
 Consiste en una aplicación web desarrollada en PHP. Es muy útil para poder administrar el servidor LDAP de forma remota con interfaz gráfica sin tener que instalar nada en el equipo local, ya que lo haríamos a través de esta aplicación web. Para instalarla es necesario un servidor Web con soporte para PHP (por ejemplo, Apache). 
 
-Podemos instalarlo con “apt-get” (nos instalará un servidor Web completo con PHP incluido):
+Podemos instalarlo con "apt" (nos instalará un servidor Web completo con PHP incluido):
 
 ```bash
-# apt-get install phpldapadmin
+# apt install phpldapadmin
 ```
 
-Los ficheros de la aplicación se almacenarán en el directorio “/usr/share/phpldapadmin/htdocs/”, y los archivos de configuración en “/etc/phpldapadmin”.
+Los ficheros de la aplicación se almacenarán en el directorio "/usr/share/phpldapadmin/htdocs/", y los archivos de configuración en "/etc/phpldapadmin".
 
-Para configurar la aplicación debemos hacer los siguientes cambios en el fichero “/etc/phpldapadmin/config.php”:
+Para configurar la aplicación debemos hacer los siguientes cambios en el fichero "/etc/phpldapadmin/config.php":
 
 - Dirección IP o nombre del servidor LDAP que se quiere administrar (cambiamos este parámetro sólo si el servidor está en una máquina distinta al PhpLdapAdmin):
 
@@ -163,7 +161,7 @@ Para configurar la aplicación debemos hacer los siguientes cambios en el ficher
   $servers->setValue('server','base',array('dc=iesdomingoperezminik,dc=es'));
   ```
 
-  Suponiendo que nuestro dominio fuera “iesdomingoperezminik.es”.
+  Suponiendo que nuestro dominio fuera "iesdomingoperezminik.es".
 
 - Usuario con el que se va a conectar al servidor LDAP:
 
@@ -191,12 +189,12 @@ http://www.ldapbrowser.com/download.htm
 
 ### **JXplorer**
 
-Explorador LDAP desarrollado en Java, por lo que es una aplicación multiplataforma. Es necesario disponer de una Máquina Virtual Java (JVM), por lo que al instalar el paquete “jxplorer”, si no disponemos de una, se instalará junto con JXplorer.
+Explorador LDAP desarrollado en Java, por lo que es una aplicación multiplataforma. Es necesario disponer de una Máquina Virtual Java (JVM), por lo que al instalar el paquete "jxplorer", si no disponemos de una, se instalará junto con JXplorer.
 
 Para su instalación:
 
 ```bash
-# apt-get install jxplorer
+# apt install jxplorer
 ```
 
 Para iniciar la aplicación una vez instalada:
@@ -207,10 +205,10 @@ $ jexplorer &
 
 ## **Administrar LDAP desde la línea de comandos**
 
-Para instalar los comandos necesarios para consultar y administrar un servidor LDAP debemos instalar el paquete “ldap-utils”:
+Para instalar los comandos necesarios para consultar y administrar un servidor LDAP debemos instalar el paquete "ldap-utils":
 
 ```bash
-# apt-get install ldap-utils
+# apt install ldap-utils
 ```
 
 Los comandos instalados son los siguientes:
@@ -227,17 +225,17 @@ Los comandos instalados son los siguientes:
 
 Las OPCIONES comunes a todos los comandos anteriores son:
 
-| Opción        | Descripción                                                  |
-| ------------- | ------------------------------------------------------------ |
-| -H url        | Indica la URL de acceso al servidor LDAP. 			Formato de URL: ldap://ip_o_nombre:puerto 	ó     ldaps://ip_o_nombre:puerto                                   En vez de esto podemos usar las opciones “-h” y “-p”. |
-| -h servidor   | Indica el nombre o IP del servidor LDAP. Por defecto usa “localhost”. |
-| -p puerto     | Indica el puerto del servidor. Por defecto usa “389”.        |
-| -x            | Utiliza autenticación simple.                                |
-| -D binddn     | DN del usuario con el que se va a conectar.                  |
-| -W            | Al utilizar autenticación simple, para que nos pida la contraseña. |
-| -w contraseña | Al utilizar autenticación simple, indicamos la contraseña.   |
+| Opción        | Descripción                                                  | Valor por defecto |
+| ------------- | ------------------------------------------------------------ | ----------------- |
+| -H url        | Indica la URL de acceso al servidor LDAP. Formato de URL: *ldap://ip_o_nombre:puerto* ó *ldaps://ip_o_nombre:puerto*. En vez de esto podemos usar las opciones "-h" y "-p". |                   |
+| -h servidor   | Indica el nombre o IP del servidor LDAP.                     | localhost         |
+| -p puerto     | Indica el puerto del servidor.                               | 389               |
+| -x            | Utiliza autenticación simple.                                |                   |
+| -D binddn     | DN del usuario con el que se va a conectar.                  |                   |
+| -W            | Al utilizar autenticación simple, para que nos pida la contraseña. |                   |
+| -w contraseña | Al utilizar autenticación simple, indicamos la contraseña.   |                   |
 
-**NOTA: En los siguientes ejemplos se supone que el dominio de nuestro directorio es “iesdomingoperezminik.es”, y usamos el usuario “admin”.**
+**NOTA: En los siguientes ejemplos se supone que el dominio de nuestro directorio es "iesdomingoperezminik.es", y usamos el usuario "admin".**
 
 ### **Añadir una entrada al directorio**
 
@@ -249,7 +247,9 @@ $ ldapadd [OPCIONES] -f fichero.ldif
 
 Donde:
 
-- -f fichero.ldif		Indica que la información la cargará desde el fichero LDIF.
+| Opción          | Descripción                                                 |
+| --------------- | ----------------------------------------------------------- |
+| -f fichero.ldif | Indica que la información la cargará desde el fichero LDIF. |
 
 Por ejemplo:
 
@@ -257,9 +257,9 @@ Por ejemplo:
 $ ldapadd -x -D cn=admin,dc=iesdomingoperezminik,dc=es -W -f nuevo-usuario.ldif
 ```
 
-Donde el fichero “nuevo-usuario.ldif” podría ser el siguiente:
+Donde el fichero "nuevo-usuario.ldif" podría ser el siguiente:
 
-```bash
+```ini
 # ENTRADA DE USUARIO
 dn: cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 cn: Fran Vargas
@@ -275,7 +275,7 @@ Donde a su vez:
 
 - <u>cn</u>: nombre común (common name); ponemos el nombre del usuario
 
-- <u>objectClass</u>: tipo de entrada (clase de objeto). Al menos hay que poner uno de tipo “estructural” (structural).
+- <u>objectClass</u>: tipo de entrada (clase de objeto). Al menos hay que poner uno de tipo "estructural" (structural).
 
 - <u>sn</u>: apellidos (surname)
 
@@ -283,7 +283,7 @@ Es posible especificar tantos atributos como requiera nuestra entrada, incluso a
 
 Es posible añadir muchas entradas al directorio a la vez desde un mismo fichero LDIF; por ejemplo:
 
-```bash
+```ini
 # ENTRADA DE UNIDAD ORGANIZATIVA
 dn: ou=profesores,dc=iesdomingoperezminik,dc=es
 ou: profesores
@@ -310,7 +310,7 @@ El ejemplo anterior añade una unidad organizativa y dos usuarios.
 
 ### **Cifrar las contraseñas de los usuarios**
 
-Para generar contraseñas cifradas utilizamos el comando “slappasswd” de la siguiente forma:
+Para generar contraseñas cifradas utilizamos el comando "slappasswd" de la siguiente forma:
 
 ```bash
 $ slapdpasswd [-h esquema] [-s contraseña]
@@ -318,10 +318,10 @@ $ slapdpasswd [-h esquema] [-s contraseña]
 
 Donde:
 
-| Opción        | Descripción                                                  |
-| ------------- | ------------------------------------------------------------ |
-| -h esquema    | Indica el algoritmo de encriptado utilizado. Posibles valores: {SSHA}, {SHA}, {MD5}, 				{SMD5}, {CLEARTEXT } (para texto plano, inseguro), … Si se omite, usa “{SSHA}” por 			defecto. |
-| -s contraseña | Indica la contraseña a encriptar. Si se omite, nos la pide.  |
+| Opción        | Descripción                                                  | Valor por defecto |
+| ------------- | ------------------------------------------------------------ | ----------------- |
+| -h esquema    | Indica el algoritmo de encriptado utilizado. Posibles valores: {SSHA}, {SHA}, {MD5}, {SMD5}, {CLEARTEXT } (para texto plano, inseguro), … | {SSHA}            |
+| -s contraseña | Indica la contraseña a encriptar. Si se omite, nos la pide.  |                   |
 
 Algunos ejemplos:
 
@@ -346,16 +346,18 @@ Re-enter new password: ****
 {SMD5}x1WErGooJV57nePCM4pnv6j4JQI=
 ```
 
-El valor devuelto por el comando “slapdpasswd” lo utilizamos como valor para el atributo “userPassword” a la hora de crear usuarios. Por ejemplo:
+El valor devuelto por el comando "slapdpasswd" lo utilizamos como valor para el atributo "userPassword" a la hora de crear usuarios. Por ejemplo:
 
-```bash
+```ini
 # ENTRADA DE USUARIO
 dn: cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 cn: Fran Vargas
 objectClass: person
 sn: Vargas
-userPassword: {SSHA}pBbpnndVobICHI5kciLpL2CdhpWLJ4Um		← 1234 cifrado con SHA-1
+userPassword: {SSHA}pBbpnndVobICHI5kciLpL2CdhpWLJ4Um
 ```
+
+> **NOTA**: la cadena "pBbpnndVobICHI5kciLpL2CdhpWLJ4Um" se corresponde con la contraseña "1234" cifrada con SHA-1.
 
 ### **Cambiar la contraseña de nuestro propio usuario**
 
@@ -374,13 +376,13 @@ Donde las opciones son:
 | -S             | Pregunta por la nueva contraseña.              |
 | -s newpassword | Le indicamos la nueva contraseña directamente. |
 
-Por ejemplo, si el usuario “Fran Vargas” quisiera cambiar su contraseña:
+Por ejemplo, si el usuario "Fran Vargas" quisiera cambiar su contraseña:
 
 ```bash
 $ ldappasswd -x -D "cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es" -W -S
 ```
 
-Se le pedirá la contraseña nueva 2 veces, luego la contraseña actual y se actualizará la contraseña del usuario “Fran Vargas” en el directorio.
+Se le pedirá la contraseña nueva 2 veces, luego la contraseña actual y se actualizará la contraseña del usuario "Fran Vargas" en el directorio.
 
 ### **Cambiar la contraseña de otro usuario (sólo administrador)**
 
@@ -400,17 +402,17 @@ Donde las opciones son:
 | -s newpassword | Le indicamos la nueva contraseña.                            |
 | dn_usuario     | Nombre distinguido del usuario al que queremos cambiarle la contraseña. |
 
-Por ejemplo, si el administrador (admin) va a cambiar la contraseña del usuario “Fran Vargas”:
+Por ejemplo, si el administrador (admin) va a cambiar la contraseña del usuario "Fran Vargas":
 
 ```bash
 $ ldappasswd -x -D "cn=admin,dc=iesdomingoperezminik,dc=es" -W -S "cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es"
 ```
 
-Se le pedirá la nueva contraseña para “Fran Vargas” 2 veces (-S), luego la contraseña del administrador (-W) y se actualizará la contraseña del usuario “Fran Vargas” en el directorio.
+Se le pedirá la nueva contraseña para "Fran Vargas" 2 veces (-S), luego la contraseña del administrador (-W) y se actualizará la contraseña del usuario "Fran Vargas" en el directorio.
 
 ### **Comprobar un usuario**
 
-Para comprobar si un usuario es válido (si está registrado en el directorio LDAP) podemos utilizar el comando “ldapwhoami”:
+Para comprobar si un usuario es válido (si está registrado en el directorio LDAP) podemos utilizar el comando "ldapwhoami":
 
 ```bash
 $ ldapwhoami [OPCIONES]
@@ -436,11 +438,11 @@ $ ldapmodify [OPCIONES] -f fichero.ldif
 
 Al igual que para añadir, debemos crear un fichero con formato LDIF para realizar modificaciones a las entradas del directorio.
 
-***Modificar el valor de un atributo de una entrada***
+#### Modificar el valor de un atributo de una entrada
 
-Si queremos modificar un atributo de una entrada, por ejemplo el atributo “sn” del usuario “Fran Vargas”, usaríamos el siguiente fichero:
+Si queremos modificar un atributo de una entrada, por ejemplo el atributo "sn" del usuario "Fran Vargas", usaríamos el siguiente fichero:
 
-```bash
+```ini
 dn: cn=Francisco Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: modify
 replace: sn
@@ -456,11 +458,11 @@ Donde:
 | replace    | Indica el atributo que se va a modificar. En el ejemplo anterior es “sn” (surname = apellido). |
 | sn         | Nuevo valor del atributo.                                    |
 
-***Añadir un nuevo atributo a una entrada***
+#### Añadir un nuevo atributo a una entrada
 
-Si queremos añadir un nuevo atributo, por ejemplo “telephoneNumber” al usuario “Fran Vargas”, usaríamos el siguiente fichero:
+Si queremos añadir un nuevo atributo, por ejemplo "telephoneNumber" al usuario "Fran Vargas", usaríamos el siguiente fichero:
 
-```bash
+```ini
 dn: cn=Francisco Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: modify
 add: telephoneNumber
@@ -476,11 +478,11 @@ Donde:
 | add             | Indica el atributo que se va a añadir. En el ejemplo anterior es “telephoneNumber”. |
 | telephoneNumber | Nuevo valor del atributo.                                    |
 
-***Eliminar un atributo de una entrada***
+#### Eliminar un atributo de una entrada
 
-Si queremos eliminar un atributo, por ejemplo “telephoneNumber” del usuario “Fran Vargas”, usaríamos el siguiente fichero:
+Si queremos eliminar un atributo, por ejemplo "telephoneNumber" del usuario "Fran Vargas", usaríamos el siguiente fichero:
 
-```bash
+```ini
 dn: cn=Francisco Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: modify
 add: telephoneNumber
@@ -495,11 +497,11 @@ Donde:
 | changetype | Tipo de cambio que se va a realizar sobre la entrada. “modify” indica que se va a modificar la entrada. |
 | delete     | Indica el atributo que se va a modificar. En el ejemplo anterior es “telephonmeNumber”. |
 
-***Modificar el RDN de una entrada***
+#### Modificar el RDN de una entrada
 
-Si por ejemplo quisiéramos modificar el RDN (Relative Distinguished Name) del usuario “Fran Vargas”, emplearíamos un fichero LDIF como el siguiente:
+Si por ejemplo quisiéramos modificar el RDN (Relative Distinguished Name) del usuario "Fran Vargas", emplearíamos un fichero LDIF como el siguiente:
 
-```bash
+```ini
 dn: cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: moddn
 newrdn: cn=Francisco Vargas Ruiz
@@ -515,11 +517,11 @@ Donde:
 | newrdn       | Atributo que se corresponde con el RDN de la entrada y su nuevo valor. En este caso “cn=…”. |
 | deleteoldrdn | Número de elementos que se eliminan del DN del usuario. En este caso 1. |
 
-***Mover una entrada***
+#### Mover una entrada
 
-Si por ejemplo quisiéramos mover la entrada del usuario “Fran Vargas” de la unidad organizativa “profesores” a “alumnos”, emplearíamos un fichero LDIF como el siguiente:
+Si por ejemplo quisiéramos mover la entrada del usuario "Fran Vargas" de la unidad organizativa "profesores" a "alumnos", emplearíamos un fichero LDIF como el siguiente:
 
-```bash
+```ini
 dn: cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: moddn
 newrdn: cn=Fran Vargas
@@ -537,11 +539,11 @@ Donde:
 | deleteoldrdn | Número de elementos que se eliminan del DN del usuario. En este caso 1. |
 | newsuperior  | DN de la nueva ubicación de la entrada (debe existir).       |
 
-***Realizar varias modificaciones en una entrada***
+#### Realizar varias modificaciones en una entrada
 
-Es posible hacer varios cambios en una entrada desde un mismo fichero LDIF; por ejemplo, para modificar el atributo “sn” y añadir el atributo “telephoneNumber” al usuario “Fran Vargas”:
+Es posible hacer varios cambios en una entrada desde un mismo fichero LDIF; por ejemplo, para modificar el atributo "sn" y añadir el atributo "telephoneNumber" al usuario "Fran Vargas":
 
-```bash
+```ini
 dn: cn=Francisco Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: modify
 replace: sn
@@ -553,7 +555,7 @@ telephoneNumber: +34600123456
 -
 ```
 
-Se usa el guión “-” como separador de los cambios. También posible repetir atributos, en este caso se añaden dos números de teléfono al usuario.
+Se usa el guión "-" como separador de los cambios. También posible repetir atributos, en este caso se añaden dos números de teléfono al usuario.
 
 ### **Eliminar una entrada del directorio**
 
@@ -567,7 +569,7 @@ Donde las opciones pueden ser:
 
 - dn		Nombre distinguido (DN) de la entrada a eliminar.
 
-Por ejemplo, para eliminar al usuario “Fran Vargas”:
+Por ejemplo, para eliminar al usuario "Fran Vargas":
 
 ```bash
 $ ldapdelete -x -D "cn=admin,dc=iesdomingoperezminik,dc=es" -W "cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es"
@@ -591,19 +593,19 @@ Donde:
 
 Ejemplos:
 
-- Mostrar todas las entradas dentro de “uo=marketing,dc=acme,dc=es” que sean de la clase de objeto “person”:
+- Mostrar todas las entradas dentro de "uo=marketing,dc=acme,dc=es" que sean de la clase de objeto "person":
 
 ```bash
 $ ldapsearch -x -b "uo=marketing,dc=acme,dc=es" "(objectClass=person)"
 ```
 
-- Mostrar todas las entradas dentro de “dc=acme,dc=es” que tengan nombre común (cn) que empiece por “F”:
+- Mostrar todas las entradas dentro de "dc=acme,dc=es" que tengan nombre común (cn) que empiece por "F":
 
 ```bash
 $ ldapsearch -x -b "dc=acme,dc=es" "(cn=F*)"
 ```
 
-- Mostrar el atributo “sn” de las entradas dentro de “dc=acme,dc=es” que tengan nombre de usuario “fvarrui” (uid):
+- Mostrar el atributo "sn" de las entradas dentro de "dc=acme,dc=es" que tengan nombre de usuario "fvarrui" (uid):
 
 ```bash
 $ ldapsearch -x -b "dc=acme,dc=es" "(uid=fvarrui)" sn
@@ -628,7 +630,7 @@ La librería **nss-ldap** permite que un servidor LDAP suplante a los archivos /
 La instalación de los paquetes libpam-ldap y libnss-ldap se puede realizar ejecutando el siguiente comando:
 
 ```bash
-# apt-get install libpam-ldap
+# apt install libpam-ldap
 ```
 
 El paquete libnss-ldap es una dependencia de libpam-ldap, por lo que se instalará automáticamente al este último.
@@ -645,9 +647,9 @@ Durante el proceso de instalación se abrirá un asistente que nos permitirá co
 
 3. Establecemos la versión del protocolo LDAP que utilizará la librería (LDAPv2 ó LDAPv3).
 
-4. Indicamos “Sí” para que el usuario “root” pueda cambiar las contraseñas de los usuarios del directorio LDAP del mismo modo en que cambia las contraseñas de los usuarios locales.
+4. Indicamos "Sí" para que el usuario "root" pueda cambiar las contraseñas de los usuarios del directorio LDAP del mismo modo en que cambia las contraseñas de los usuarios locales.
 
-5. Seleccionamos que “No”, indicando en este caso que no es necesario autenticarse (login) para consultar el directorio LDAP (esto es, que permite el acceso anónimo).
+5. Seleccionamos que "No", indicando en este caso que no es necesario autenticarse (login) para consultar el directorio LDAP (esto es, que permite el acceso anónimo).
 
 6. Indicamos el DN de la cuenta del administrador del servidor LDAP, de forma que los cambios de contraseña realizados por el administrador (root) se puedan actualizar en el directorio LDAP.
 
@@ -698,9 +700,9 @@ Ya hemos instalado y configurado las librerías necesarias para que nuestro sist
 
 ## **Configurar el fichero nsswitch.conf**
 
-Para que el servidor LDAP actúe como si se tratara de los archivos /etc/passwd, /etc/group y /etc/shadow, además de instalar las librerías anteriores, debemos indicar que se utilice LDAP como alternativa para autentificar usuarios. Para ello hay que añadir en el archivo /etc/nsswitch.conf, exactamente en las líneas que hacen referencia a “passwd”, “group” y “shadow”, la palabra ldap tras la palabra compat quedando el archivo /etc/nsswitch.conf así:
+Para que el servidor LDAP actúe como si se tratara de los archivos /etc/passwd, /etc/group y /etc/shadow, además de instalar las librerías anteriores, debemos indicar que se utilice LDAP como alternativa para autentificar usuarios. Para ello hay que añadir en el archivo /etc/nsswitch.conf, exactamente en las líneas que hacen referencia a "passwd", "group" y "shadow", la palabra ldap tras la palabra compat quedando el archivo /etc/nsswitch.conf así:
 
-```bash
+```ini
 # /etc/nsswitch.conf
 #
 # Example configuration of GNU Name Service Switch functionality.
@@ -728,12 +730,12 @@ Nuestro sistema ya estaría preparado para autentificarse por LDAP. Editando los
 
 Para no tener que configurar cada uno de los servicios, existen unos archivos comunes cuyo nombre empieza por common que afectan a la mayoría de ellos y sus ficheros de configuración referencian mediante una línea @include a los ficheros comunes, causando el mismo el efecto que si el contenido de los ficheros comunes estuviera copiado en el lugar de la línea @include. Los archivos comunes son:
 
-| Archivo                    | Descripción                        |
-| -------------------------- | ---------------------------------- |
-| /etc/pam.d/common-auth     | (para autenticarse)                |
-| /etc/pam.d/common-account  | (para disponer de una cuenta)      |
-| /etc/pam.d/common-session  | (para poder iniciar sesión)        |
-| /etc/pam.d/common-password | (para poder cambiar la contraseña) |
+| Archivo                    | Descripción                       |
+| -------------------------- | --------------------------------- |
+| /etc/pam.d/common-auth     | Para autenticarse.                |
+| /etc/pam.d/common-account  | Para disponer de una cuenta.      |
+| /etc/pam.d/common-session  | Para poder iniciar sesión.        |
+| /etc/pam.d/common-password | Para poder cambiar la contraseña. |
 
 Estos ficheros contienen una línea que hace referencia a la librería pam_unix.so que corresponde a la autentificación contra los archivos UNIX (passwd, shadow y group). Para que los servicios de nuestro sistema utilicen primero las librerías pam_ldap.so para autentificar al usuario, debemos añadir la línea correspondiente a pam_ldap.so por encima de la línea correspondiente a la librería pam_unix.so en los archivos common. Así, autentificará primero contra el servidor LDAP, y si la autentificación falla, probará después con los ficheros UNIX.
 
@@ -743,7 +745,7 @@ Si queremos que compruebe primero con la base de datos de usuarios local y luego
 
 Para que los servicios de nuestro sistema utilicen las librerías pam-ldap para autenticar al usuario, debemos añadir en el archivo /etc/pam.d/common-auth la siguiente línea debajo de la línea pam_unix.so:
 
-```bash
+```ini
 auth [success=1 default=ignore] pam_ldap.so use_first_pass
 ```
 
@@ -751,7 +753,7 @@ Si la línea ya existe, no es necesario tocar el fichero.
 
 El archivo /etc/pam.d/common-auth quedaría de la siguiente forma:
 
-```bash
+```ini
 #
 # /etc/pam.d/common-auth - authentication settings common to all services
 #
@@ -785,7 +787,7 @@ auth	optional			pam_cap.so
 
 Para permitir que los servicios de nuestro sistema comprueben la cuenta del usuario mediante las librerías pam-ldap, debemos añadir en el archivo /etc/pam.d/common-account la siguiente línea debajo de la línea pam_unix.so:
 
-```bash
+```ini
 account [success=1 default=ignore] pam_ldap.so
 ```
 
@@ -793,7 +795,7 @@ Si la línea ya existe, no es necesario tocar el fichero.
 
 El archivo /etc/pam.d/common-account quedaría de la siguiente forma:
 
-```bash
+```ini
 #
 # /etc/pam.d/common-account - authorization settings common to all services
 #
@@ -826,7 +828,7 @@ account	required			pam_permit.so
 
 Para permitir que los servicios de nuestro sistema obtengan los parámetros de la sesión de usuario mediante las librerías pam-ldap, debemos añadir en el archivo /etc/pam.d/common-session la siguiente línea debajo de la línea pam_unix.so:
 
-```bash
+```ini
 session optional pam_ldap.so
 ```
 
@@ -834,7 +836,7 @@ Si la línea ya existe, no es necesario tocar el fichero.
 
 El archivo /etc/pam.d/common-session quedaría de la siguiente forma:
 
-```bash
+```ini
 #
 # /etc/pam.d/common-session - session-related modules common to all services
 #
@@ -869,11 +871,11 @@ session	optional			pam_ck_connector.so nox11
 # end of pam-auth-update config
 ```
 
-### **Configuración del archivo common-password**
+### Configuración del archivo common-password
 
 Para permitir que los servicios de nuestro sistema puedan modificar la contraseña del usuario mediante las librerías pam-ldap, debemos añadir en el archivo /etc/pam.d/common-password la siguiente línea debajo de la línea pam_unix.so:
 
-```bash
+```ini
 password [success=1 user_unknown=ignore default=die] pam_ldap.so use_authtok try_first_pass
 ```
 
@@ -881,7 +883,7 @@ Si la línea ya existe, no es necesario tocar el fichero.
 
 El archivo /etc/pam.d/common-password quedaría de la siguiente forma:
 
-```bash
+```ini
 #
 # /etc/pam.d/common-password - password-related modules common to all services
 #
@@ -919,35 +921,37 @@ password	optional	pam_gnome_keyring.so
 # end of pam-auth-update config
 ```
 
-### **Configuración particular de cada servicio**
+### Configuración particular de cada servicio
 
 Si deseamos que algún servicio se autentifique de forma diferente, podemos editar el archivo del servicio (ej: /etc/pam.d/su, /etc/pam.d/ssh, /etc/pam.d/ftp, etc.), eliminar la línea que comienza por @include (no incluir en la configuración del servicio los ficheros common) e introducir la configuración particular que deseemos.
 
-### **Crear el directorio HOME al iniciar sesión**
+### Crear el directorio HOME al iniciar sesión
 
 Añadir en el fichero /etc/pam.d/common-session la línea siguiente:
 
-```bash
+```ini
 session required pam_mkhomedir.so skel=/etc/skel umask=0022
 ```
 
 Pero justo antes de la siguiente línea:
 
-```bash
+```ini
 session required pam_permit.so
 ```
 
 De esta forma, cuando un usuario inicie sesión y no disponga de directorio HOME, se creará a partir de los ficheros /etc/skel (skel=/etc/skel) y con los permisos rw-rw-r- (umask=0022).
 
-## **Creación de usuarios y grupos en el directorio LDAP para poder iniciar sesión en GNU/Linux**
+## Creación de usuarios y grupos en el directorio LDAP para poder iniciar sesión en GNU/Linux
 
 Las librerías anteriores deben saber identificar las entradas del directorio que corresponden con usuarios y grupos GNU/Linux. Por ello, es necesario que las entradas pertenezcan a unas clases de objetos determinadas (objectClasses).
 
-### **Unidades organizativas**
+### Unidades organizativas
 
 Las unidades organizativas (organizational units) nos permiten organizar las entradas del directorio. Las entradas de este tipo contendrán a su vez entradas de usuarios, grupos y otras unidades organizativas.
 
-El objetClass para este tipo de entrada es “organizationalUnit” extiende de "top", y como RDN se utiliza el atributo “ou” con el nombre de la unidad organizativa.
+El objetClass para este tipo de entrada es "organizationalUnit" extiende de "top", y como RDN se utiliza el atributo "ou" con el nombre de la unidad organizativa.
+
+#### organizationalUnit
 
 | Atributos                  | Descripción                       | Obligatorio |
 | -------------------------- | --------------------------------- | ----------- |
@@ -959,9 +963,9 @@ El objetClass para este tipo de entrada es “organizationalUnit” extiende de 
 | st, stateOrProvinceName    | Provincia.                        |             |
 | street, streetAddress      | Calle.                            |             |
 
-Por ejemplo, para crear una unidad organizativa “usuarios”:
+Por ejemplo, para crear una unidad organizativa "usuarios":
 
-```bash
+```ini
 dn: ou=usuarios,dc=iesdomingoperezminik,dc=es
 objectClass: organizationalUnit
 objectClass: top
@@ -969,13 +973,13 @@ ou: usuarios
 description: Unidad organizativa para las cuentas de los usuarios
 ```
 
-### **Usuarios**
+### Usuarios
 
-Las cuentas de los usuarios que queremos que puedan iniciar sesión en los sistemas GNU/Linux con autenticación basada en LDAP deben pertenecer a las clases de objeto “posixAccount” y “shadowAccount”.
+Las cuentas de los usuarios que queremos que puedan iniciar sesión en los sistemas GNU/Linux con autenticación basada en LDAP deben pertenecer a las clases de objeto "posixAccount" y "shadowAccount".
 
-Si queremos poder almacenar información adicional en el directorio de los usuarios como el e-mail u otros datos, también podemos hacer que sus entradas sean de tipo “inetOrgPerson”.
+Si queremos poder almacenar información adicional en el directorio de los usuarios como el e-mail u otros datos, también podemos hacer que sus entradas sean de tipo "inetOrgPerson".
 
-- Para la clase "posixAccount" que extiende a la clase "top"
+#### posixAccount
 
 | Atributos      | Descripción                                                  | Obligatorio |
 | -------------- | ------------------------------------------------------------ | ----------- |
@@ -989,11 +993,11 @@ Si queremos poder almacenar información adicional en el directorio de los usuar
 | loginShell     | Shell de inicio de sesión.                                   |             |
 | userPassword   | Contraseña del usuario.                                      |             |
 
-- Para la clase "shadowAccount" que extiende a la clase "top"
+#### shadowAccount
 
 | Atributos        | Descripción                                                  | Obligatorio |
 | ---------------- | ------------------------------------------------------------ | ----------- |
-| uid,userId       | Nombre de usuario                                            | X           |
+| uid, userId      | Nombre de usuario                                            | X           |
 | description      | Descripción.                                                 |             |
 | shadowExpire     | Número de días entre el 1/1/1970 y el día en que la cuenta de usuario se bloquea. |             |
 | shadowFlag       | Sin uso.                                                     |             |
@@ -1002,23 +1006,25 @@ Si queremos poder almacenar información adicional en el directorio de los usuar
 | shadowMax        | Número máximo de días en que la contraseña es válida.        |             |
 | shadowMin        | Número de días entre un cambio de contraseña y otro.         |             |
 | shadowWarning    | Número de días en que se avisa al usuario de que cambie su contraseña antes de que caduque. |             |
-| userPassword     | Contraseña del usuario “hasheada”                            |             |
+| userPassword     | Contraseña del usuario "hasheada"                            |             |
 
-- Para la clase "inetOrgPerson" que extiende a la clase "organizationalPerson"
+#### inetOrgPerson
 
-| Atributos    | Descripción           | Obligatorio |
-| ------------ | --------------------- | ----------- |
-| gn,givenName | Nombre.               | X           |
-| sn,surname   | Apellidos.            | X           |
-| jpegPhoto    | Foto en formato JPEG. |             |
-| mail         | Dirección de correo.  |             |
-| mobile       | Número de móvil.      |             |
+| Atributos     | Descripción           | Obligatorio |
+| ------------- | --------------------- | ----------- |
+| gn, givenName | Nombre.               | X           |
+| sn, surname   | Apellidos.            | X           |
+| jpegPhoto     | Foto en formato JPEG. |             |
+| mail          | Dirección de correo.  |             |
+| mobile        | Número de móvil.      |             |
 
-Las clases de objeto “posixAccount” y “shadowAccount” se corresponden campo a campo con los ficheros /etc/passwd y /etc/shadow de los sistemas GNU/Linux.
+> Las clases de objeto "posixAccount" y "shadowAccount" se corresponden campo a campo con los ficheros /etc/passwd y /etc/shadow de los sistemas GNU/Linux.
 
 ### **Grupos**
 
-Las grupos de usuarios definidos en el directorio LDAP que queremos que sean reconocidos por nuestro sistema GNU/Linux deben pertenecer a la clase de objeto “posixGroup” que extiende a la clase "top".
+Las grupos de usuarios definidos en el directorio LDAP que queremos que sean reconocidos por nuestro sistema GNU/Linux deben pertenecer a la clase de objeto "posixGroup" que extiende a la clase "top".
+
+#### posixGroup
 
 | Atributos      | Descripción                                                  | Obligatorio |
 | -------------- | ------------------------------------------------------------ | ----------- |
@@ -1032,7 +1038,7 @@ Las grupos de usuarios definidos en el directorio LDAP que queremos que sean rec
 
 Nuestro servidor LDAP ya debería autentificar correctamente a nuestros usuarios.
 
-Una forma de comprobarlo es obteniendo las bases de datos “passwd”, “shadow” y “group” mediante el comando getent:
+Una forma de comprobarlo es obteniendo las bases de datos "passwd", "shadow" y "group" mediante el comando getent:
 
 ```bash
 fran@cliente-linux:~$ getent passwd

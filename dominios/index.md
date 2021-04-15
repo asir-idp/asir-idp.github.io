@@ -1,48 +1,47 @@
 # ¿Qué es un servicio de directorio?
 
-Wikipedia: “Un **servicio de directorio (SD)** es una aplicación o un conjunto de aplicaciones que almacena y organiza la información sobre los usuarios de una red de ordenadores y sobre los recursos de red que permite a los administradores gestionar el acceso de usuarios a los recursos sobre dicha red.”
+Wikipedia: *Un **servicio de directorio (SD)** es una aplicación o un conjunto de aplicaciones que almacena y organiza la información sobre los usuarios de una red de ordenadores y sobre los recursos de red que permite a los administradores gestionar el acceso de usuarios a los recursos sobre dicha red.*
 
 Por tanto, un directorio es un conjunto de objetos con atributos organizados en una manera lógica y jerárquica (como un árbol). Esta estructura de datos en forma de árbol se denomina **DIT (Directory Information Tree)**.
 
 ![Resultado de imagen de servicio de directorio](1.png)
 
-Los objetos del servicio de directorio pueden pertenecer a una o más clases (objectClass). Los “objectClass” proveen a los objetos con una serie de atributos. Estos atributos pueden ser obligatorios u opcionales. Todos los “objectClass” disponibles en nuestro directorio se encuentran en el esquema o catálogo del directorio (“Schema” o “Global Catalog”), donde se guardan las definiciones de las clases y los atributos de cada una.
+Los objetos del servicio de directorio pueden pertenecer a una o más clases (objectClass). Los **objectClass** proveen a los objetos con una serie de atributos. Estos atributos pueden ser obligatorios u opcionales. Todos los "objectClass" disponibles en nuestro directorio se encuentran en el esquema o catálogo del directorio ("Schema" o "Global Catalog"), donde se guardan las definiciones de las clases y los atributos de cada una.
 
-Algunos ejemplos de “objectClass”:
+Un ejemplo sería la clase **organizationPerson** que extiende de **person** (hereda todos los atributos de "person"):
 
 | Clase (objectClass)  | Extiende (superClass) |
 | -------------------- | --------------------- |
 | person               | top                   |
-|                      |                       |
 | organizationalPerson | person                |
 | inetOrgPerson        | organizationalPerson  |
 | organizationalUnit   | top                   |
-| ...                  | ...                   |
 
-| **Atributos (attribute)**  | **Descripción**                   | **Obligatorio** |
-| -------------------------- | --------------------------------- | --------------- |
-| cn, commonName             | Nombre común.                     | X               |
-| sn, surname                | Apellidos.                        | X               |
-| description                | Descripción.                      |                 |
-| telephoneNumber            | Número de teléfono.               |                 |
-| userPassword               | Contraseña de usuario.            |                 |
-| description                | Descripción.                      |                 |
-| l, localityName            | Localidad.                        |                 |
-| postalAddress              | Dirección postal.                 |                 |
-| postalCode                 | Código postal.                    |                 |
-| st, stateOrProvinceName    | Provincia.                        |                 |
-| street, streetAddress      | Calle.                            |                 |
-| jpegPhoto                  | Foto en formato JPEG.             |                 |
-| mail                       | Dirección de correo.              |                 |
-| mobile                     | Número de móvil.                  |                 |
-| ou, organizationalUnitName | Nombre de la unidad organizativa. | X               |
-| description                | Descripción.                      |                 |
-| l, localityName            | Localidad.                        |                 |
-| postalAddress              | Dirección postal.                 |                 |
-| postalCode                 | Código postal.                    |                 |
-| st, stateOrProvinceName    | Provincia.                        |                 |
-| street, streetAddress      | Calle.                            |                 |
-| ...                        | ...                               |                 |
+
+| Atributos (attribute)      | Descripción                       | Obligatorio |
+| -------------------------- | --------------------------------- | ----------- |
+| cn, commonName             | Nombre común.                     | X           |
+| sn, surname                | Apellidos.                        | X           |
+| description                | Descripción.                      |             |
+| telephoneNumber            | Número de teléfono.               |             |
+| userPassword               | Contraseña de usuario.            |             |
+| description                | Descripción.                      |             |
+| l, localityName            | Localidad.                        |             |
+| postalAddress              | Dirección postal.                 |             |
+| postalCode                 | Código postal.                    |             |
+| st, stateOrProvinceName    | Provincia.                        |             |
+| street, streetAddress      | Calle.                            |             |
+| jpegPhoto                  | Foto en formato JPEG.             |             |
+| mail                       | Dirección de correo.              |             |
+| mobile                     | Número de móvil.                  |             |
+| ou, organizationalUnitName | Nombre de la unidad organizativa. | X           |
+| description                | Descripción.                      |             |
+| l, localityName            | Localidad.                        |             |
+| postalAddress              | Dirección postal.                 |             |
+| postalCode                 | Código postal.                    |             |
+| st, stateOrProvinceName    | Provincia.                        |             |
+| street, streetAddress      | Calle.                            |             |
+| ...                        | ...                               |             |
 
 # ¿Qué es LDAP?
 
@@ -102,15 +101,15 @@ El **Directorio Activo** de Windows y **OpenLDAP** son ejemplos de servidores de
 
 - **Structural Object Class:** Es una clase de objeto (object class) que define el tipo básico de un objeto. Todos los objetos del directorio deben pertenecer al menos a una clase estructural.
 
-- **Suffix:** Ver “Naming Context”. 
+- **Suffix:** Ver "Naming Context". 
 
-- **Object Class:** Es un elemento del esquema que se usa para definir un conjunto de atributos requeridos u opcionales para los objetos del directorio (entries), que contienen/pertenecen a esa “clase de objeto” (objectClass). Un “objectClass” pueden heredar de otro “objectClass”, adquiriendo de este modo sus atributos y entendiéndolo con sus propios atributos. Los “objectClass” pueden ser estructurales (structural), auxiliares (auxiliary) o abstractos (abstract).
+- **Object Class:** Es un elemento del esquema que se usa para definir un conjunto de atributos requeridos u opcionales para los objetos del directorio (entries), que contienen/pertenecen a esa "clase de objeto" (objectClass). Un "objectClass" pueden heredar de otro "objectClass", adquiriendo de este modo sus atributos y entendiéndolo con sus propios atributos. Los "objectClass" pueden ser estructurales (structural), auxiliares (auxiliary) o abstractos (abstract).
 
 - **Object Identifier (OID):** Cadena de caracteres que identifica de forma única cada elemento en el protocolo LDAP. Un OID está formado por números separados con puntos. 
 
 - **Operational Attribute:** Tipo de atributo de un objeto cuya finalidad es guardar información para el servidor o sobre el estado de la información de un objeto. Por defecto estos atributos no son devueltos cuando se hace una consulta/búsqueda al servidor.
 
-- **User Attribute:** Tipo de atributo de un objeto cuya finalidad es contener información sobre ese objeto (nombre común, apellido, descripción, teléfono, dirección,…). Se consideran atributos “normales”, al contrario de los atributos de operación.
+- **User Attribute:** Tipo de atributo de un objeto cuya finalidad es contener información sobre ese objeto (nombre común, apellido, descripción, teléfono, dirección,…). Se consideran atributos "normales", al contrario de los atributos de operación.
 
   
 
