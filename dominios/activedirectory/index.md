@@ -49,11 +49,9 @@ Seguimos los siguientes pasos:
 
 1. Desplegamos el menú del icono de "Notificaciones" en el "Administrador del servidor" y seleccionamos la opción "Promover este servidor a controlador de dominio".
 
-![img](2.png)
+	![Icono de notificaciones](2.png)
 
-​                                                                                                                       **Icono de Notificaciones**
-
-Esto iniciará el "Asistente para configuración de Servicios de dominio de Active Directory".
+	Esto iniciará el "Asistente para configuración de Servicios de dominio de Active Directory".
 
 2. En el paso "Configuración de implementación" seleccionamos "Agregar un nuevo bosque", pues partimos de la situación en la que no tenemos ningún aún dominio, y especificamos el nombre de dominio raíz de nuestro bosque. Por ejemplo: 
 
@@ -63,7 +61,7 @@ Esto iniciará el "Asistente para configuración de Servicios de dominio de Acti
 
 3. En el paso "Opciones del controlador de dominio", mediante las opciones "Nivel funcional del bosque" y "Nivel funcional del dominio" podemos bajarlo anterior para mantener compatibilidad con otros Windows Server que pueden actuar como controladores de dominio. En nuestro caso, dejamos en ambos "Windows Server 2012 R2". 
 
-También dejamos seleccionada la opción "Servidor de sistema de nombres de dominio (DNS)" para que se instale el servicio de DNS necesario.
+	También dejamos seleccionada la opción "Servidor de sistema de nombres de dominio (DNS)" para que se instale el servicio de DNS necesario.
 
 4. Nos saltamos el paso "Opciones de DNS".
 
@@ -93,9 +91,9 @@ También dejamos seleccionada la opción "Servidor de sistema de nombres de domi
        -SysvolPath "C:\Windows\SYSVOL" `
        -Force:$true
    ```
-
-Si está todo correcto, continuamos.
-
+   
+   Si está todo correcto, continuamos.
+   
 8. En el paso "Comprobación de requisitos previos" se realizan varias comprobaciones a ver si el servidor cumple los requisitos para ser promocionado a controlador de dominio. En nuestro caso recibimos varias advertencias, pero aún así cumplimos los requisitos para ser controlador de dominio, así que pulsamos "Instalar".
 
 Cuando termine la instalación se reiniciará el servidor y ya formará parte del dominio como controlador de dominio (y servidor DNS).
@@ -165,7 +163,7 @@ Luego, también mediante esta consola, podemos aplicar dichas GPO a las unidades
 
 Es posible administrar el Directorio Activo mediante cmdlets de PowerShell.
 
-Para obtener más información consultar el siguiente enlace: https://technet.microsoft.com/en-us/library/hh852274
+Para obtener más información consultar el siguiente enlace: [https://technet.microsoft.com/en-us/library/hh852274](https://technet.microsoft.com/en-us/library/hh852274)
 
 ## **Otras herramientas de administración**
 
@@ -177,7 +175,7 @@ Administrador LDAP libre y gratuito con el soporte de la comunidad Apache. Es un
 
 Podemos Descargar ADS desde el siguiente enlace:
 
-http://directory.apache.org/studio/
+[http://directory.apache.org/studio/](http://directory.apache.org/studio/)
 
 ## **Integración de un equipo en el dominio**
 
