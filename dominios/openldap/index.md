@@ -110,7 +110,7 @@ Administrador LDAP libre y gratuito con el soporte de la comunidad Apache. Es un
 
 Podemos Descargar ADS desde el siguiente enlace:
 
-http://directory.apache.org/studio/
+[http://directory.apache.org/studio/](http://directory.apache.org/studio/)
 
 Es necesario tener Java instalado para poder usar ADS. Ejecutando los siguientes comandos instalamos Java 11.0.10:
 
@@ -181,7 +181,7 @@ Una vez que hayamos iniciado la sesión en **phpLdapAdmin**, podremos explorar y
 
 Se trata de dos aplicaciones para Windows que podemos descargar del siguiente enlace:
 
-http://www.ldapbrowser.com/download.htm
+[http://www.ldapbrowser.com/download.htm](http://www.ldapbrowser.com/download.htm)
 
 **LDAP Administrator** es una aplicación de pago que nos permite explorar y manipular el contenido del servidor LDAP al que nos conectemos. Podemos descargar una versión de prueba de 30 días (trial).
 
@@ -259,7 +259,7 @@ $ ldapadd -x -D cn=admin,dc=iesdomingoperezminik,dc=es -W -f nuevo-usuario.ldif
 
 Donde el fichero "nuevo-usuario.ldif" podría ser el siguiente:
 
-```ini
+```
 # ENTRADA DE USUARIO
 dn: cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 cn: Fran Vargas
@@ -283,7 +283,7 @@ Es posible especificar tantos atributos como requiera nuestra entrada, incluso a
 
 Es posible añadir muchas entradas al directorio a la vez desde un mismo fichero LDIF; por ejemplo:
 
-```ini
+```
 # ENTRADA DE UNIDAD ORGANIZATIVA
 dn: ou=profesores,dc=iesdomingoperezminik,dc=es
 ou: profesores
@@ -348,7 +348,7 @@ Re-enter new password: ****
 
 El valor devuelto por el comando "slapdpasswd" lo utilizamos como valor para el atributo "userPassword" a la hora de crear usuarios. Por ejemplo:
 
-```ini
+```
 # ENTRADA DE USUARIO
 dn: cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 cn: Fran Vargas
@@ -442,7 +442,7 @@ Al igual que para añadir, debemos crear un fichero con formato LDIF para realiz
 
 Si queremos modificar un atributo de una entrada, por ejemplo el atributo "sn" del usuario "Fran Vargas", usaríamos el siguiente fichero:
 
-```ini
+```
 dn: cn=Francisco Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: modify
 replace: sn
@@ -462,7 +462,7 @@ Donde:
 
 Si queremos añadir un nuevo atributo, por ejemplo "telephoneNumber" al usuario "Fran Vargas", usaríamos el siguiente fichero:
 
-```ini
+```
 dn: cn=Francisco Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: modify
 add: telephoneNumber
@@ -482,7 +482,7 @@ Donde:
 
 Si queremos eliminar un atributo, por ejemplo "telephoneNumber" del usuario "Fran Vargas", usaríamos el siguiente fichero:
 
-```ini
+```
 dn: cn=Francisco Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: modify
 add: telephoneNumber
@@ -501,7 +501,7 @@ Donde:
 
 Si por ejemplo quisiéramos modificar el RDN (Relative Distinguished Name) del usuario "Fran Vargas", emplearíamos un fichero LDIF como el siguiente:
 
-```ini
+```
 dn: cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: moddn
 newrdn: cn=Francisco Vargas Ruiz
@@ -521,7 +521,7 @@ Donde:
 
 Si por ejemplo quisiéramos mover la entrada del usuario "Fran Vargas" de la unidad organizativa "profesores" a "alumnos", emplearíamos un fichero LDIF como el siguiente:
 
-```ini
+```
 dn: cn=Fran Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: moddn
 newrdn: cn=Fran Vargas
@@ -543,7 +543,7 @@ Donde:
 
 Es posible hacer varios cambios en una entrada desde un mismo fichero LDIF; por ejemplo, para modificar el atributo "sn" y añadir el atributo "telephoneNumber" al usuario "Fran Vargas":
 
-```ini
+```
 dn: cn=Francisco Vargas,ou=profesores,dc=iesdomingoperezminik,dc=es
 changetype: modify
 replace: sn
@@ -702,7 +702,7 @@ Ya hemos instalado y configurado las librerías necesarias para que nuestro sist
 
 Para que el servidor LDAP actúe como si se tratara de los archivos /etc/passwd, /etc/group y /etc/shadow, además de instalar las librerías anteriores, debemos indicar que se utilice LDAP como alternativa para autentificar usuarios. Para ello hay que añadir en el archivo /etc/nsswitch.conf, exactamente en las líneas que hacen referencia a "passwd", "group" y "shadow", la palabra ldap tras la palabra compat quedando el archivo /etc/nsswitch.conf así:
 
-```ini
+```
 # /etc/nsswitch.conf
 #
 # Example configuration of GNU Name Service Switch functionality.
@@ -745,7 +745,7 @@ Si queremos que compruebe primero con la base de datos de usuarios local y luego
 
 Para que los servicios de nuestro sistema utilicen las librerías pam-ldap para autenticar al usuario, debemos añadir en el archivo /etc/pam.d/common-auth la siguiente línea debajo de la línea pam_unix.so:
 
-```ini
+```
 auth [success=1 default=ignore] pam_ldap.so use_first_pass
 ```
 
@@ -753,7 +753,7 @@ Si la línea ya existe, no es necesario tocar el fichero.
 
 El archivo /etc/pam.d/common-auth quedaría de la siguiente forma:
 
-```ini
+```
 #
 # /etc/pam.d/common-auth - authentication settings common to all services
 #
@@ -787,7 +787,7 @@ auth	optional			pam_cap.so
 
 Para permitir que los servicios de nuestro sistema comprueben la cuenta del usuario mediante las librerías pam-ldap, debemos añadir en el archivo /etc/pam.d/common-account la siguiente línea debajo de la línea pam_unix.so:
 
-```ini
+```
 account [success=1 default=ignore] pam_ldap.so
 ```
 
@@ -795,7 +795,7 @@ Si la línea ya existe, no es necesario tocar el fichero.
 
 El archivo /etc/pam.d/common-account quedaría de la siguiente forma:
 
-```ini
+```
 #
 # /etc/pam.d/common-account - authorization settings common to all services
 #
@@ -828,7 +828,7 @@ account	required			pam_permit.so
 
 Para permitir que los servicios de nuestro sistema obtengan los parámetros de la sesión de usuario mediante las librerías pam-ldap, debemos añadir en el archivo /etc/pam.d/common-session la siguiente línea debajo de la línea pam_unix.so:
 
-```ini
+```
 session optional pam_ldap.so
 ```
 
@@ -836,7 +836,7 @@ Si la línea ya existe, no es necesario tocar el fichero.
 
 El archivo /etc/pam.d/common-session quedaría de la siguiente forma:
 
-```ini
+```
 #
 # /etc/pam.d/common-session - session-related modules common to all services
 #
@@ -875,7 +875,7 @@ session	optional			pam_ck_connector.so nox11
 
 Para permitir que los servicios de nuestro sistema puedan modificar la contraseña del usuario mediante las librerías pam-ldap, debemos añadir en el archivo /etc/pam.d/common-password la siguiente línea debajo de la línea pam_unix.so:
 
-```ini
+```
 password [success=1 user_unknown=ignore default=die] pam_ldap.so use_authtok try_first_pass
 ```
 
@@ -883,7 +883,7 @@ Si la línea ya existe, no es necesario tocar el fichero.
 
 El archivo /etc/pam.d/common-password quedaría de la siguiente forma:
 
-```ini
+```
 #
 # /etc/pam.d/common-password - password-related modules common to all services
 #
@@ -929,13 +929,13 @@ Si deseamos que algún servicio se autentifique de forma diferente, podemos edit
 
 Añadir en el fichero /etc/pam.d/common-session la línea siguiente:
 
-```ini
+```
 session required pam_mkhomedir.so skel=/etc/skel umask=0022
 ```
 
 Pero justo antes de la siguiente línea:
 
-```ini
+```
 session required pam_permit.so
 ```
 
@@ -965,7 +965,7 @@ El objetClass para este tipo de entrada es "organizationalUnit" extiende de "top
 
 Por ejemplo, para crear una unidad organizativa "usuarios":
 
-```ini
+```
 dn: ou=usuarios,dc=iesdomingoperezminik,dc=es
 objectClass: organizationalUnit
 objectClass: top
