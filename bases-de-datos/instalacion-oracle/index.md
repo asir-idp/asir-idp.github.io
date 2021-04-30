@@ -1,4 +1,4 @@
-# Instalación optimizada de Oracle Database 11g
+# ¿Cómo instalar de forma sencilla de Oracle Database 11g?
 
 ## Video de instalación
 
@@ -6,105 +6,143 @@
 
 ## Instalación de Vagrant
 
-1. Primero debe instalar la herramienta de **Vagrant** del siguiente [enlace](https://www.vagrantup.com/). También es posible mediante la herramienta [chocolatey](https://chocolatey.org/), para la cual deberá ejecutar el siguiente comando en PowerShell en modo administrador, que encontraremos en el siguiente [enlace](https://chocolatey.org/install).
+Primero debemos instalar la herramienta [**Vagrant**](https://www.vagrantup.com/):
 
-	![img](install-choco.png) 
+### En Windows
 
-2. Tras ejecutar el comando de instalación desde powershell como administrador, chocolatey estará instalado. Una vez hecho esto podremos instalar vagrant con el siguiente comando, también desde powershell:
+La forma más sencilla de instalar Vagrant es utilizando el gestor de paquetes [Chocolatey](https://chocolatey.org/):
+
+1. Ejecutamos el siguiente comando en PowerShell como Administrador (si aún no lo tenemos instalado el Chocolatey):
+
+	```powershell
+	Set-ExecutionPolicy Bypass -Scope Process -Force; 	[System.Net.ServicePointManager]::SecurityProtocol = 	[System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+	```
+
+2. Y ahora podemos instalar **vagrant** con el siguiente comando, también desde PowerShell como Administrador:
 
     ```powershell
     choco install -y Vagrant
     ```
 
-## Descargar la máquina virtual ya configurada
+### En GNU/Linux
 
-Una vez instalado Vagrant, nos moveremos a un cmd y nos situaremos en la ruta donde queramos que se guarden las máquinas virtuales. Ahí, creará una carpeta con el nombre que quiera, donde instalará la máquina virtual. Muévase dentro una vez creada y ejecute los siguientes comandos desde el cmd:
+Abrimos un terminal y ejecutamos uno de los siguientes comandos, dependiendo de cuál sea nuestro sistema:
+
+#### Basado en Debian (Ubuntu, LinuxMint, ...)
+
+```bash
+sudo apt install -y vagrant
+```
+
+#### Basado en RedHat (Fedora)
+
+```bash
+sudo yum install -y vagrant
+```
+
+## Descargar la máquina virtual con CentOS 6 + Oracle Database 11g
+
+Una vez instalado Vagrant, abrimos un terminal , nos desplazamos a la ruta donde queramos que se guarde la máquina virtual (en adelante, MV) y ahí creamos creamos un directorio con el nombre `centos6-oracle-11g` , donde instalará la MV:
+
+```bash
+mkdir centos6-oracle-11g
+```
+
+Nos movemos dentro de esa carpeta:
+
+```bash
+cd centos6-oracle-11g
+```
+
+Ejecutamos los siguientes comandos:
 
 ```powershell
 vagrant init neko-neko/centos6-oracle-11g-XE
 vagrant up
 ```
 
-Esta es una distribución de Linux sin interfaz gráfica (podemos instalarla sin), la cual viene con el **Oracle Developer 11g**. Una vez haya terminado la descarga, la máquina estará abierta en VirtualBox. Debemos iniciarla y entrar con la siguientes credenciales:
+> Este proceso puede tardar unos minutos.
+
+Con esto se nos descargará una MV con un CentOS 6 (distribución de GNU/Linux basada en RedHat) sin interfaz gráfica, que ya trae **Oracle Database 11g** instalado. Una vez haya terminada la descarga, la máquina estará iniciada y podremos controlarla desde **VirtualBox**. 
+
+Si queremos detener la MV desde el mismo terminal, en el directorio `centos6-oracle-11g` ejecutamos el siguiente comando:
+
+```bash
+vagrant halt
+```
+
+Podemos usar las siguientes credenciales para iniciar sesión en la MV (si fuese necesario):
 
 - Usuario: `vagrant`
 - Contraseña: `vagrant`
 
-## Configuración de la máquina virtual
+## Configurar la máquina virtual 
 
-1. Una vez dentro debemos apagar la máquina para aplicar un cambio. Esto lo haremos mediante el siguiente comando:
+Debemos cambiar la configuración de red de la máquina virtual para poder conectar a Oracle Database desde la máquina real, estableciendo la configuración de su interfaz de red en **Adaptador puente**:
+
+1. Apagamos la máquina. Para ello iniciamos sesión en la MV con las credenciales que se indicaron antes y ejecutamos el siguiente comando:
 
     ```bash
     sudo shutdown -h now
     ```
 
-2. Una vez hecho esto iremos a la configuración de la máquina virtual en VirtualBox y la configuraremos en adaptador puente.
+    > Es recomendable hacer un apagado correcto de la MV.
+
+2. Vamos a la configuración de la MV en VirtualBox y la establecemos en **Adaptador puente**.
 
 	![img](adaptador-puente.png) 
 
-3. Tras esto iniciaremos la máquina y entraremos nuevamente con las mismas credenciales y ejecutaremos el siguiente comando:
+3. Finalmente, volvemos a iniciar la MV, iniciamos sesión nuevamente con las mismas credenciales y ejecutamos el siguiente comando para conocer la dirección IP que se le ha asignado (necesaria para poder conectarnos a Oracle Database desde el exterior):
 
     ```bash
     ifconfig
     ```
 
-    Este comando (lo subrayado) nos devolverá la ip (lo redondeado) de nuestra máquina virtual, necesaria para hacer la conexión.
+    Este comando nos devolverá la dirección IP (resaltada en la siguiente imagen) de nuestra MV, necesaria para hacer la conexión.
 
     ![img](buscar-ip.png) 
 
-> **NOTA:** Si a la hora de hacer la conexión, esta no funciona, pruebe a reiniciar la máquina y volver a ejecutar el comando ifconfig para verificar si la dirección ip ha cambiado.
+	> **NOTA:** Si a la hora de hacer la conexión, esta no funciona, pruebe a reiniciar la máquina y volver a ejecutar el comando `ifconfig` para verificar si la dirección IP ha cambiado.
 
 ## Instalación de SQL Developer
 
-1. Tras esto, deberemos instalar el **SQL Developer**. Para ello accederemos al siguiente [enlace](https://www.oracle.com/tools/downloads/sqldev-downloads.html). Una vez seleccionamos la descarga para nuestro sistema operativo, nos pedirá que iniciemos sesión con una **cuenta de Oracle**. Debemos realizar este paso y en caso de no tener una, crearla. Los pasos son muy sencillos siguiendo el formulario y tras rellenarlo habrá que hacer una verificación por correo. Una vez hecho esto, podremos descargar el instalador.
+Ahora vamos a instalar **SQL Developer** en la máquina real (anfitriona):
 
-2. Una vez descargado e instalado, podemos acceder al gestor de bases de datos desde la máquina anfitriona. Es desde aquí donde haremos la conexión
+1. Descargamos la herramienta Oracle SQL Developer del siguiente [enlace](https://www.oracle.com/tools/downloads/sqldev-downloads.html), y la instalamos. 
 
-**Necesitaremos las siguientes credenciales:**
+	> Nos pedirá que iniciemos sesión con una **cuenta de Oracle**. Debemos realizar este paso y en caso de no tener una, crearla. Los pasos son muy sencillos siguiendo el formulario y tras rellenarlo, habrá que hacer una verificación por correo. Una vez hecho esto, podremos descargar el instalador.
 
-- Nombre de la máquina: `El que queramos darle`
-- Usuario: `system`
-- Contraseña: `vagrant`
+1. Iniciamos SQL Developer y configuramos la conexión al gestor de bases de datos, usando los siguientes parámetros:
+
+- Nombre de la conexión: `El que queramos darle`.
+- Usuario: `system`.
+- Contraseña: `vagrant`.
+- Nombre del host: `dirección ip de la máquina virtual` (en este caso sería 10.1.1.67).
+- SID: `xe`
 
 ![img](configurar-sql-developer.png) 
 
-> Es recomendable marcar la pestaña de “Guardar Contraseña”
+> Es recomendable marcar la pestaña de “Guardar Contraseña”.
 
-Una vez hecho esto, hemos finalizado el proceso y podremos utilizar libremente el gestor. De esta manera podremos utilizar toda le gestión desde el equipo original, mientras que tanto la carga de los archivos y las bases de datos se están almacenando y ejecutando en la máquina virtual. Al ser esta mucho más ligera, la carga total del equipo es muchísimo menor y debería ir más fluido, el consumo total de RAM para la base de datos es de 2 GB y el Developer en la real, por su parte, es un servicio ligero, pues todo el cálculo se hace en la virtual.
-
-
+Una vez hecho esto, hemos finalizado el proceso y podremos hacer uso del gestor de base de datos. Ahora, cuando necesitemos usar este servicio, sólo tendremos que iniciar la MV y detenerla cuando ya no sea necesario, liberando a nuestro PC de la sobrecarga que esto supone.
 
 ## Cambio de expiración de las contraseñas
 
-> **Nota:** Este paso no está en el tutorial
+Por defecto, las políticas de Oracle Database determinan que la caducidad de las contraseñas sea cada 180 días. Si esto nos supone un problema, podemos cambiar lo de la siguiente forma
 
-Por defecto, las políticas de oracle determinan que la caducidad de las contraseñas sea cada 180 día, pero nosotros vamos a cambiar eso ejecutando 2 cláusulas de SQL. Para ello , tras haber realizado la conexión con nuestra máquina virtual desde el Developer, abriremos una hoja de consultas. En ella escribiremos lo siguiente:
+1. Abrimos el Oracle SQL Developer y conectamos al gestor de base de datos (Oracle Database 11g virtualizado).
 
+2. Ejecutamos la siguiente sentencia SQL para cambiar la caducidad a ilimitada:
 
+    ```sql
+    ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+    ```
 
-- Para ver la caducidad de las contrasñas:
+3. Verificamos que se ha aplicado el cambio:
 
-```SQL
-Select * from DBA_PROFILES where RESOURCE_NAME like'PASSWORD_LIFE_TIME';
-```
-
-![contraseñas-1](contraseñas-1.PNG)
-
-- Para cambiar la caducidad a ilimitada.
-
-```SQL
-ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
-```
-
-![contraseñas-2](contraseñas-2.PNG)
-
-- Verificar que se ha aplicado el cambio
-
-```SQL
-Select * from DBA_PROFILES where RESOURCE_NAME like'PASSWORD_LIFE_TIME';
-```
-
-![contraseñas-3](contraseñas-3.PNG)
+    ```sql
+    Select * from DBA_PROFILES where RESOURCE_NAME like'PASSWORD_LIFE_TIME';
+    ```
 
 ## Créditos
 
