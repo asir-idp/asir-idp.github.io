@@ -32,7 +32,7 @@ function Install-Wget() {
         Write-Host "wget for Windows already installed"
     } else {
         Write-Host "Downloading and installing wget for Windows ..."
-        (New-Object System.Net.WebClient).DownloadFile("https://eternallybored.org/misc/wget/releases/wget-1.20.3-win64.zip", "$env:windir\temp\wget-1.20.3-win64.zip")
+        (New-Object System.Net.WebClient).DownloadFile("https://eternallybored.org/misc/wget/releases/old/wget-1.20.3-win64.zip", "$env:windir\temp\wget-1.20.3-win64.zip")
         Unzip-File "$env:windir\temp\wget-1.20.3-win64.zip" "$env:ProgramFiles\wget"
     }
 }
