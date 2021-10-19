@@ -14,7 +14,7 @@ function Unzip-File($zipFile, $destFolder) {
 }
 
 function Wget-File($url, $file) {
-    & "wget" "--no-check-certificate" "-O" "$file" "$url"
+    & "$env:windir\System32\wget" "--no-check-certificate" "-O" "$file" "$url"
 }
 
 function Install-7zip() {
