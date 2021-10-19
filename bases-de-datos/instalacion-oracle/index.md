@@ -128,17 +128,19 @@ Una vez hecho esto, hemos finalizado el proceso y podremos hacer uso del gestor 
 
 ## Cambio de expiración de las contraseñas
 
-Por defecto, las políticas de Oracle Database determinan que la caducidad de las contraseñas sea cada 180 días. Si esto nos supone un problema, podemos cambiar lo de la siguiente forma
+Por defecto, las políticas de Oracle Database determinan que la caducidad de las contraseñas sea cada 180 días. Si esto nos supone un problema, podemos cambiar lo de la siguiente forma:
 
-1. Abrimos el Oracle SQL Developer y conectamos al gestor de base de datos (Oracle Database 11g virtualizado).
+1. Abrimos el **Oracle SQL Developer** y conectamos al gestor de base de datos (Oracle Database 11g virtualizado).
 
-2. Ejecutamos la siguiente sentencia SQL para cambiar la caducidad a ilimitada:
+2. Conectamos a la MV mediante 
+
+3. Ejecutamos la siguiente sentencia SQL para cambiar la caducidad a ilimitada:
 
     ```sql
     ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
     ```
 
-3. Verificamos que se ha aplicado el cambio:
+4. Verificamos que se han aplicado el cambio:
 
     ```sql
     Select * from DBA_PROFILES where RESOURCE_NAME like'PASSWORD_LIFE_TIME';
