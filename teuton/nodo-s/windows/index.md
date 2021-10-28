@@ -4,6 +4,8 @@ Para que el profesor pueda verificar la configuración de tu máquina virtual (M
 
 ## 1. Configurar la MV como Nodo-S
 
+### Windows 10+
+
 Abre **PowerShell** como `Administrador`.
 
 ![PowerShell](windows-powershell.png)
@@ -20,9 +22,51 @@ Una vez ejecutado el comando, si todo va bien, el resultado debería ser similar
 
 Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
 
+### Windows Vista, 7, 8 y 8.1
+
+1. Descargar el fichero ZIP de instalación del Nodo-S para [32 bits](https://github.com/asir-idp/asir-idp.github.io/releases/download/w7-snode-install/windows7_s-node_install_32bits.zip) o [64 bits](https://github.com/asir-idp/asir-idp.github.io/releases/download/w7-snode-install/windows7_s-node_install_64bits.zip).
+
+2. Copiar el fichero ZIP descargado en la MV (a través de una **carpeta compartida en la MV**, por ejemplo).
+
+3. Descomprimir el fichero ZIP en la MV.
+
+4. Abrir **PowerShell** como **Administrador**.
+
+5. Cambiar al directorio que descomprimimos antes: 
+
+  Si nuestro sistema es de 32 bits:
+  ```powershell
+  cd C:\ruta\al\directorio\windows7_s-node_install_32bits
+  ```
+
+  o si es de 64 bits:
+  ```powershell
+  cd C:\ruta\al\directorio\windows7_s-node_install_64bits
+  ```
+
+  > Suponiendo que lo hayamos copiado en el Escritorio de nuestro usuario "Alumno":
+  >
+  > ````powershell
+  > cd C:\Users\Alumno\Desktop\windows7_s-node_install_XXbits
+  > ````
+
+6. Habilitar la ejecución de scripts en PowerShell: 
+
+  ```powershell
+  Set-ExecutionPolicy Bypass -Scope Process -Force`
+  ```
+
+7. Ejecutar el script:
+
+  ```powershell
+  .\windows7_s-node_install.ps1
+  ```
+
+Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
+
 ## 2. Hacer la máquina accesible al profesor
 
-En este punto se dan dos posibles situaciones: si tu MV se encuentra a) **dentro del aula** o b) **en el exterior** (en tu casa, por ejemplo).
+En este punto se dan dos posibles situaciones: si tu MV se encuentra:
 
 ### a) Dentro del aula
 
@@ -64,15 +108,17 @@ Por ejemplo:
 
 **El profesor te indicará el medio a través del  cuál deberás entregar este fichero.**
 
-### b) En el exterior
+### b) En el exterior (en tu casa, p.ej.)
 
-Primero, debes [darte de alta](https://dashboard.ngrok.com/signup) en la web de `ngrok` y obtener así tu `<auth_token>`.
+Primero, debes [darte de alta](https://dashboard.ngrok.com/signup) en la web de `ngrok` y obtener así tu `<auth_token>`. 
+
+> Esto sólo tendrás que hacerlo una vez, y podrás reutilizar el token tantas veces como necesites.
 
 ![](authtoken.png)
 
 Luego, desde un terminal, autoriza esta máquina para usar `ngrok`:
 
-```bash
+```powershell
 ngrok authtoken <auth_token>
 ```
 
@@ -80,13 +126,13 @@ ngrok authtoken <auth_token>
 
 A continuación, también desde un terminal, ejecuta el siguiente comando:
 
-```bash
+```powershell
 ngrok tcp 22 -region eu
 ```
 
 ![](ngrok.png)
 
-Y finalmente, proporciona al profesor un fichero en formato YAML con el siguiente contenido, remplazando los valores indicados (`<address>` y  `<port>` con los datos que devuelve **ngrok**; y `<usuario>` y `<contraseña>` con las credenciales del usuario de la MV):
+Finalmente, **proporciona al profesor un fichero en formato YAML** con el siguiente contenido, remplazando los valores indicados (`<address>` y  `<port>` con los datos que devuelve **ngrok**; y `<usuario>` y `<contraseña>` con las credenciales del usuario de la MV):
 
 ```yaml
 - :tt_members: <tu nombre completo>
