@@ -53,7 +53,7 @@ Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
 6. Habilitar la ejecución de scripts en PowerShell: 
 
   ```powershell
-  Set-ExecutionPolicy Bypass -Scope Process -Force`
+  Set-ExecutionPolicy Bypass -Scope Process -Force
   ```
 
 7. Ejecutar el script:
@@ -61,6 +61,10 @@ Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
   ```powershell
   .\windows7_s-node_install.ps1
   ```
+
+Una vez ejecutado el comando, si todo va bien, el resultado debería ser similar al siguiente:
+
+![image-20211028124827509](windows7-installation-result.png)
 
 Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
 
