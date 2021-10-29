@@ -34,21 +34,21 @@ Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
 
 5. Cambiar al directorio que descomprimimos antes: 
 
-  Si nuestro sistema es de 32 bits:
-  ```powershell
-  cd C:\ruta\al\directorio\windows7_s-node_install_32bits
-  ```
+    Si nuestro sistema es de 32 bits:
+    ```powershell
+    cd C:\ruta\al\directorio\windows7_s-node_install_32bits
+    ```
 
-  o si es de 64 bits:
-  ```powershell
-  cd C:\ruta\al\directorio\windows7_s-node_install_64bits
-  ```
+    o si es de 64 bits:
+    ```powershell
+    cd C:\ruta\al\directorio\windows7_s-node_install_64bits
+    ```
 
-  > Suponiendo que lo hayamos copiado en el Escritorio de nuestro usuario "Alumno":
-  >
-  > ````powershell
-  > cd C:\Users\Alumno\Desktop\windows7_s-node_install_XXbits
-  > ````
+      > Suponiendo que lo hayamos copiado en el Escritorio de nuestro usuario "Alumno":
+      >
+      > ````powershell
+      > cd C:\Users\Alumno\Desktop\windows7_s-node_install_XXbits
+      > ````
 
 6. Habilitar la ejecución de scripts en PowerShell: 
 
