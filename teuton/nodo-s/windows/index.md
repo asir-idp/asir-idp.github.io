@@ -45,6 +45,7 @@ Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
       > ````
 
 6. Habilitar la ejecución de scripts en PowerShell: 
+
     ```powershell
     Set-ExecutionPolicy Bypass -Scope Process -Force
     ```
