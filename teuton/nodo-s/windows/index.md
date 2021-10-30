@@ -24,49 +24,18 @@ Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
 
 ### Windows Vista, 7, 8 y 8.1
 
-1. Descargar el fichero ZIP de instalación del Nodo-S para [32 bits](https://github.com/asir-idp/asir-idp.github.io/releases/download/w7-snode-install/windows7_s-node_install_32bits.zip) o [64 bits](https://github.com/asir-idp/asir-idp.github.io/releases/download/w7-snode-install/windows7_s-node_install_64bits.zip).
+1. Descargar el instalador del Nodo-S para Windows del siguiente [enlace](https://github.com/asir-idp/asir-idp.github.io/releases/download/windows-snode-install/windows_s-node_install.exe).
 
-2. Copiar el fichero ZIP descargado en la MV (a través de una **carpeta compartida en la MV**, por ejemplo).
+2. Copiar el fichero EXE descargado antes en tu MV (a través de una **carpeta compartida en la MV**, por ejemplo).
 
-3. Descomprimir el fichero ZIP en la MV.
+3. Ejecutarlo y ¡listo!, tu MV ya es un Nodo-S para **teuton**.
 
-4. Abrir **PowerShell** como **Administrador**.
-
-5. Cambiar al directorio que descomprimimos antes: 
-
-    ```powershell
-    cd C:\ruta\al\directorio\windows7_s-node_install
-    ```
-
-      > Suponiendo que lo hayamos copiado en el Escritorio de nuestro usuario "Alumno":
-      >
-      > ````powershell
-      > cd C:\Users\Alumno\Desktop\windows7_s-node_install
-      > ````
-
-6. Habilitar la ejecución de scripts en PowerShell: 
-
-    ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force
-    ```
-
-7. Ejecutar el script:
-
-    ```powershell
-    .\windows7_s-node_install.ps1
-    ```
-
-Una vez ejecutado el comando, si todo va bien, el resultado debería ser similar al siguiente:
-
-![image-20211028124827509](windows7-installation-result.png)
-
-Finalizado este apartado, esta MV ya es un Nodo-S para **teuton**.
 
 ## 2. Hacer la máquina accesible al profesor
 
-En este punto se dan dos posibles situaciones: si tu MV se encuentra:
+En este punto se dan dos posibles situaciones: si tu MV se encuentra ...
 
-### a) Dentro del aula
+### a) En el aula
 
 Primero [configuramos la interfaz de red de la MV en **Adaptador puente**](../../../virtualizacion/virtualbox/configurar-red-en-adaptador-puente) para que sea accesible desde la red del aula.
 
