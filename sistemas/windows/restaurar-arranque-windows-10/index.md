@@ -35,6 +35,8 @@ A continuación debemos **restaurar el cargador de arranque** (código de arranq
 
    > No olvides pulsar **Enter** después de cada comando para ejecutarlo.
 
+   >   **ATENCIÓN:** En caso de que falle alguno de los comandos anteriores, debemos ejecutar `chkdsk /f c:` para reparar los problemas que pudiera haber en el sistema de ficheros de Windows.
+
 6. Extrae el DVD/USB de Windows y reinicia el equipo.
 
 7. Y ahora debería arrancar sin problema. ¡¡¡De nada!!!
