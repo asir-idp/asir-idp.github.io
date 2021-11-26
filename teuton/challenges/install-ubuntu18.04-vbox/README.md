@@ -1,10 +1,10 @@
 ```
-Test unit name : install-windows10-vbox
-Date           : 2021-10-24 11:50:24 +0100
+Test unit name : install-ubuntu18.04-vbox
+Date           : 2021-11-26 12:54:54 +0000
 Teuton version : 2.2.0
 ```
 
-# install-windows10-vbox
+# install-ubuntu18.04-vbox
 
 ### Required hosts
 
@@ -21,14 +21,14 @@ Teuton version : 2.2.0
 
 > NOTE: Save every ':param: value' into config file.
 
-## Install windows 10 on a vbox virtual machine
+## Install ubuntu 18.04.1 lts on a vbox virtual machine
 
 
 Go to [HOST1](#required-hosts) host, and do next:
 * Set 4GB of RAM memory for the virtual machine.
-* Set a 25GB hard disk drive for the virtual machine.
-* Install Windows 10 Pro on the virtual machine.
-* Create user Alumno and make him member of Administradores local group.
+* Set a 20GB hard disk drive for the virtual machine.
+* Install Ubuntu 18.04.1 LTS on the virtual machine.
+* Create user Alumno and make him member of sudo group.
 * Set IDP as computer name.
 * Set TimeZone to UTC+00:00 (Dublin, Edimburgh, Lisbon, London).
 * Install Guest Additions on the virtual machine.
