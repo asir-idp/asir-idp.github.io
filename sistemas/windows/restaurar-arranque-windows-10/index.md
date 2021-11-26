@@ -35,7 +35,7 @@ A continuación debemos **restaurar el cargador de arranque** (código de arranq
 
    > No olvides pulsar **Enter** después de cada comando para ejecutarlo.
 
-   >   **ATENCIÓN:** En caso de que falle alguno de los comandos anteriores, debemos ejecutar `chkdsk /f c:` para reparar los problemas que pudiera haber en el sistema de ficheros de Windows.
+   >   **ATENCIÓN:** En caso de que falle alguno de los comandos anteriores indicando algo como `Acceso denegado`, debemos ejecutar `chkdsk /f c:` para reparar los problemas que pudiera haber en el sistema de ficheros de Windows.
 
 6. Extrae el DVD/USB de Windows y reinicia el equipo.
 
@@ -44,3 +44,4 @@ A continuación debemos **restaurar el cargador de arranque** (código de arranq
 ## Referencias
 
 - [Fix the MBR – Guide for Windows XP, Vista, 7, 8, 8.1, 10](https://neosmart.net/wiki/fix-mbr/#Fix_the_MBR_in_Windows_10)
+
