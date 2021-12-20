@@ -1,5 +1,7 @@
 # whoami
 
+`bash`
+
 ## Descripción
 
 Muestra el de usuario que somos actualmente (identificador de usuario efectivo, que es diferente al usuario que inició sesión).
