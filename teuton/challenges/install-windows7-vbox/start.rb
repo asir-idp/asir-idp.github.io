@@ -37,6 +37,8 @@ end
 
 play do
   show
+  export
+  export :format => :json
   export :format => :html
   send :copy_to => :host1, :remote_dir => "."
 end
