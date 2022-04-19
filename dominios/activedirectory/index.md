@@ -48,25 +48,25 @@ Una vez completado el proceso anterior de instalación del rol, debemos promover
 Seguimos los siguientes pasos:
 
 1. Desplegamos el menú del icono de "Notificaciones" en el "Administrador del servidor" y seleccionamos la opción "Promover este servidor a controlador de dominio".
-
-	![Icono de notificaciones](2.png)
-
-	Esto iniciará el "Asistente para configuración de Servicios de dominio de Active Directory".
+   
+    ![Icono de notificaciones](2.png)
+   
+    Esto iniciará el "Asistente para configuración de Servicios de dominio de Active Directory".
 
 2. En el paso "Configuración de implementación" seleccionamos "Agregar un nuevo bosque", pues partimos de la situación en la que no tenemos ningún aún dominio, y especificamos el nombre de dominio raíz de nuestro bosque. Por ejemplo: 
-
+   
    ```powershell
    iesdomingoperezminik.es
    ```
 
 3. En el paso "Opciones del controlador de dominio", mediante las opciones "Nivel funcional del bosque" y "Nivel funcional del dominio" podemos bajarlo anterior para mantener compatibilidad con otros Windows Server que pueden actuar como controladores de dominio. En nuestro caso, dejamos en ambos "Windows Server 2012 R2". 
-
-	También dejamos seleccionada la opción "Servidor de sistema de nombres de dominio (DNS)" para que se instale el servicio de DNS necesario.
+   
+    También dejamos seleccionada la opción "Servidor de sistema de nombres de dominio (DNS)" para que se instale el servicio de DNS necesario.
 
 4. Nos saltamos el paso "Opciones de DNS".
 
 5. En el paso "Opciones adicionales" indicamos el nombre NetBIOS para el dominio (el nombre debe cumplir los requisitos de nombre NetBIOS y no debe superar los 15 caracteres). Por lo tanto, si el nombre para el dominio fue "iesdomingoperezminik.es", el nombre NetBIOS podría ser:
-
+   
    ```powershell
    IESDPM
    ```
@@ -74,12 +74,12 @@ Seguimos los siguientes pasos:
 6. En el paso "Rutas de acceso" configuramos las carpetas donde el servicio almacenará su información. Lo dejamos como está y continuamos.
 
 7. En el paso "Revisar opciones" disponemos del botón "Ver script" que nos muestra el script PowerShell que podemos utilizar para añadir otros controladores al dominio. En nuestro caso es el siguiente:
-
+   
    ```powershell
    # Script de Windows PowerShell para implementación de AD DS
    Import-Module ADDSDeployment
    Install-ADDSForest `
-   	-CreateDnsDelegation:$false `
+       -CreateDnsDelegation:$false `
        -DatabasePath "C:\Windows\NTDS" `
        -DomainMode "Win2012R2" `
        -DomainName "iesdomingoperezminik.es" `
@@ -93,7 +93,7 @@ Seguimos los siguientes pasos:
    ```
    
    Si está todo correcto, continuamos.
-   
+
 8. En el paso "Comprobación de requisitos previos" se realizan varias comprobaciones a ver si el servidor cumple los requisitos para ser promocionado a controlador de dominio. En nuestro caso recibimos varias advertencias, pero aún así cumplimos los requisitos para ser controlador de dominio, así que pulsamos "Instalar".
 
 Cuando termine la instalación se reiniciará el servidor y ya formará parte del dominio como controlador de dominio (y servidor DNS).
@@ -119,8 +119,6 @@ PS> Get-Service NTDS,DNS
 ## **Administración del Directorio Activo**
 
 Una vez hemos instalado el Directorio Activo, la siguiente tarea es administrar el dominio: unidades organizativas, usuarios, grupos, …
-
-
 
 ![Resultado de imagen de active directory](3.png)
 
@@ -184,15 +182,20 @@ Si queremos que un equipo forme parte de nuestro dominio, debemos integrarlo en 
 Para integrar un equipo en el dominio seguimos los siguientes pasos desde el equipo que queremos integrar:
 
 1. Abrimos la ventana "Propiedades del sistema". Una forma de abrir esta ventana sería:
+   
    - Pulsamos WIN+PAUSA, y en el panel de izquierda seleccionamos "Configuración avanzada del sistema".
 
 2. Seleccionamos la pestaña "Nombre de equipo".
+
 3. Pulsamos el botón "Cambiar…" y se abre el diálogo "Cambios en el dominio o nombre del equipo".
+
 4. Seleccionamos "Dominio" en el panel "Miembro del" y escribimos el nombre del dominio en el que lo queremos integrar. 
 
 Por ejemplo: iesdomingoperezminik.es
 
 **Es necesario que este equipo use el mismo servidor DNS que el controlador del dominio, para poder localizar el dominio.**
+
+>  Debemos configurar la IP del Controlador de Dominio (Windows Server) como servidor de DNS del cliente que queremos integrar en el dominio.
 
 5. Introducimos las credenciales de un usuario con privilegios de administración en el dominio.
 
